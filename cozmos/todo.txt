@@ -1,0 +1,9 @@
+1).  Don't convert WikiWords inside HTML pre tags
+     a).  Spike SiteMesh Parser which stops further processing inside HTML pre tags
+2).  Implement war target in build.xml
+3).  Parameterize build.xml
+4).  Pull javac task into macro in build.xml
+5).  Fix hardcoded path to decorator (=> decorators.xml)
+6).  Implement prettier decorator
+7).  Automatic build numbers in build.xml
+8).  Investigate Maven war overlays

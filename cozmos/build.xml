@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project name="cozmos" default="test">
+    <description>
+        Cozmos - a WebDAV-enabled wiki, or diki
+    </description>
+
+    <path id="compile.path">
+        <pathelement location="lib/servlet-api-2.4/servlet-api-2.4.jar" />
+        <pathelement location="lib/sitemesh-2.3/sitemesh-2.3.jar" />
+    </path>
+
+    <path id="test.compile.path">
+        <path refid="compile.path" />
+        <pathelement location="lib/junit-3.8.2/junit-3.8.2.jar" />
+        <pathelement location="target/classes" />
+    </path>
+
+    <path id="test.run.path">
+        <path refid="test.compile.path" />
+        <pathelement location="target/test-classes" />
+    </path>
+
+    <target name="clean" depends="-clean" description="--> Cleans all build artifacts and temporary files">
+    </target>
+
+    <target name="compile" depends="-compile" description="--> Compiles all Java source files under src/main/java">
+    </target>
+
+    <target name="test" depends="-test" description="--> Runs all tests">
+    </target>
+
+    <target name="war" description="--> Builds Cozmos' WAR file">
+    </target>
+
+    <target name="-clean" depends="--clean">
+    </target>
+
+    <target name="-compile" depends="--compile-init,--compile">
+    </target>
+
+    <target name="-test" depends="-compile,--test-init,--test-compile,--test,--test-report">
+    </target>
+
+    <target name="--clean">
+        <delete dir="target" />
+    </target>
+
+    <target name="--compile-init">
+        <mkdir dir="target/classes" />
+    </target>
+
+    <target name="--compile">
+        <javac srcdir="src/main/java"
+               destdir="target/classes"
+               debug="on"
+               classpathref="compile.path"
+               source="1.4"
+               target="1.4"
+        />
+    </target>
+
+    <target name="--test-init">
+        <mkdir dir="target/test-classes" />
+        <mkdir dir="target/test-results" />
+        <mkdir dir="target/test-report" />
+    </target>
+
+    <target name="--test-compile">
+        <javac srcdir="src/test/java"
+               destdir="target/test-classes"
+               debug="on"
+               classpathref="test.compile.path"
+               source="1.4"
+               target="1.4"
+        />
+    </target>
+
+    <target name="--test">
+        <junit haltonfailure="yes" fork="no" printsummary="no">
+            <classpath refid="test.run.path" />
+
+            <formatter type="brief" usefile="no" />
+            <formatter type="xml" usefile="yes" />
+
+            <batchtest fork="no" todir="target/test-results">
+                <fileset dir="src/test/java">
+                    <include name="**/*Test*.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="--test-report">
+        <junitreport todir="target/test-report">
+            <fileset dir="target/test-results">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="target/test-report/html" />
+        </junitreport>
+    </target>
+</project>
