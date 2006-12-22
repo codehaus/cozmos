@@ -43,8 +43,14 @@
 
     <target name="--unwar">
 	
-	<mkdir dir="target/war" />
-	<unzip src="lib/slide-2.1/slide.war" dest="target/war"/>	
+	<mkdir dir="target/unwar" />
+	<unzip src="lib/slide-2.1/slide.war" dest="target/unwar"/>	
+	<zip destfile="target/cozmos.war">
+		<fileset dir="target/unwar" excludes="WEB-INF/web.xml"/>
+		<zipfileset dir="target/classes" prefix="WEB-INF/classes"/>
+		<fileset dir="src/main/resources"/>
+		<zipfileset dir="lib/sitemesh-2.3" includes="sitemesh-2.3.jar" prefix="WEB-INF/lib"/>
+	</zip>	
 	
     </target>
 
