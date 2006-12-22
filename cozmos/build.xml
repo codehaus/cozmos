@@ -29,7 +29,7 @@
     <target name="test" depends="-test" description="--> Runs all tests">
     </target>
 
-    <target name="war" description="--> Builds Cozmos' WAR file">
+    <target name="war" depends="test, --unwar" description="--> Builds Cozmos' WAR file">
     </target>
 
     <target name="-clean" depends="--clean">
@@ -40,6 +40,14 @@
 
     <target name="-test" depends="-compile,--test-init,--test-compile,--test,--test-report">
     </target>
+
+    <target name="--unwar">
+	
+	<mkdir dir="target/war" />
+	<unzip src="lib/slide-2.1/slide.war" dest="target/war"/>	
+	
+    </target>
+
 
     <target name="--clean">
         <delete dir="target" />
