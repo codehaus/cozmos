@@ -1,13 +1,13 @@
 <sitemesh>
     <page-parsers>
         <parser content-type="text/html"
-            class="project7.sitemesh.WikiWordsParser" />
+            class="com.thoughtworks.cozmos.sitemesh.WikiWordsParser" />
         <parser content-type="text/html;charset=ISO-8859-1"
-            class="project7.sitemesh.WikiWordsParser" />
+            class="com.thoughtworks.cozmos.sitemesh.WikiWordsParser" />
     </page-parsers>
 
     <decorator-mappers>
-        <mapper class="project7.Project7DecoratorMapper">
+        <mapper class="com.thoughtworks.cozmos.sitemesh.EditModeDecoratorMapper">
             <param name="config" value="${decorators-file}" />
         </mapper>
     </decorator-mappers>
