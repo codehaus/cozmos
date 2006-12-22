@@ -85,7 +85,7 @@
         </init-param>
         <init-param>
             <param-name>scope</param-name>
-            <param-value/>
+            <param-value>/files</param-value>
             <description>
                  Scope of the Slide namespace that should be exposed by this servlet.
                  For example, if you want to expose only the /files collection via
