@@ -4,7 +4,7 @@
 <head>
   <title><decorator:title/></title>
   <decorator:head />
-  <link rel="stylesheet" type="text/css" href="/decorators/style.css" />
+  <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/style.css" />
 
   </head>
 <body>

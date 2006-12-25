@@ -1,5 +1,5 @@
 body {
-	background: #FFF url('/decorators/images/back8.jpg') no-repeat top left fixed;
+	background: #FFF url('/cozmos/style/images/back8.jpg') no-repeat top left fixed;
 	margin: 0 0 20px 0;
 	padding: 0;
 	font-family: Verdana, sans-serif;
@@ -61,16 +61,16 @@ body {
 
 #nav li a:hover {
 	color: #fff;
-	background: transparent url(/decorators/images/trans7.gif) repeat;
+	background: transparent url(/cozmos/style/images/trans7.gif) repeat;
 }
 
 #nav li a#current {
-	background: transparent url(/decorators/images/trans7.gif) repeat;
+	background: transparent url(/cozmos/style/images/trans7.gif) repeat;
 	border-bottom: 1px solid #999;
 }
 
 #container {
-	background: transparent url('/decorators/images/trans5.gif') repeat;
+	background: transparent url('/cozmos/style/images/trans5.gif') repeat;
 	width: 80%;
 	margin: 0 auto;
 	padding: 0;
