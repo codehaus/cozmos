@@ -25,7 +25,7 @@ import com.opensymphony.module.sitemesh.mapper.AbstractDecoratorMapper;
 import com.opensymphony.module.sitemesh.mapper.DefaultDecorator;
 
 public class EditModeDecoratorMapper extends AbstractDecoratorMapper {
-    private static final String TEMPORARY_HACK = "/decorators/whatever.jsp";
+    private static final String TEMPORARY_HACK = "/decorators/site.decorator";
 
     public Decorator getDecorator(HttpServletRequest request, Page page) {
         String pathToDecorator = TEMPORARY_HACK;

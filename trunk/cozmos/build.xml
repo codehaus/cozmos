@@ -36,7 +36,8 @@
 			<fileset dir="src/main/resources"/>
 			<zipfileset dir="lib/sitemesh-2.3" includes="sitemesh-2.3.jar" prefix="WEB-INF/lib"/>
 			<zipfileset dir="lib" includes="webdav-servlet-1.2.jar" prefix="WEB-INF/lib"/>
-		</zip>	
+			<zipfileset dir="lib" includes="freemarker-2.3.8.jar" prefix="WEB-INF/lib"/>
+		</zip>
 		
     </target>
 
