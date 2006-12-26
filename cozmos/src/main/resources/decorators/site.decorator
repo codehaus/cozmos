@@ -1,10 +1,9 @@
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-  <title><decorator:title/></title>
-  <decorator:head />
-  <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/style.css" />
+  <title>${title}</title>
+  ${head}
+  <link rel="stylesheet" type="text/css" href="${base}/style/style.css" />
 
   </head>
 <body>
@@ -20,7 +19,7 @@
 </ul>
 <div id="container">
 <div id="content">
-<decorator:body/>
+${body}
 </div>
 <div id="footer">
 <p>Copyright&copy; 2006 Your Company <br />
