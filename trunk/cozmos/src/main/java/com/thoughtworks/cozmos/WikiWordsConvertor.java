@@ -56,7 +56,7 @@ public class WikiWordsConvertor {
     }
 
     private static String toAnchor(String wikiWord) {
-        return "<a href=\"" + underscorify(wikiWord) + "\">" + wikiWord + "</a>";
+        return "<a href=\"" + underscorify(wikiWord) + ".html\">" + wikiWord + "</a>";
     }
 
     private static String underscorify(String wikiWord) {
