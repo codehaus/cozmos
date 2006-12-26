@@ -32,7 +32,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     public void testShouldNotConvertHTMLAnchors() throws Exception {
-        WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link\">not a wiki link</a>");
+        WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link.html\">not a wiki link</a>");
         assertEquals(anchor("not_a_wiki_link", "not a wiki link"), convertor.convert());
     }
 
@@ -89,7 +89,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     private static String anchor(String href, String label) {
-        return "<a href=\"" + href + "\">" + label + "</a>";
+        return "<a href=\"" + href + ".html\">" + label + "</a>";
     }
 
     private static WikiWordsConvertor convertor(String wikiText) {
