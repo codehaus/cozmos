@@ -51,7 +51,7 @@
             <param-value>index</param-value>
         </init-param>
         <init-param>
-            <param-name>new-file-template</param-name>
+            <param-name>instead-of-404</param-name>
             <param-value>/newFileTemplate</param-value>
         </init-param>
 
