@@ -28,7 +28,7 @@
 	            net.sf.webdav.IWebdavStorage
 	        </description>
 	    </init-param>
-	    <init-param>
+        <init-param>
 	        <param-name>rootpath</param-name>
 	        <param-value>*WAR-FILE-ROOT*</param-value>
 	        <description>
@@ -42,7 +42,22 @@
 	            triggers debug output of the ResourceHandlerImplementation
 	        </description>
 	    </init-param>
-	</servlet>
+        <init-param>
+            <param-name>no-content-length-headers</param-name>
+            <param-value/>
+        </init-param>
+        <init-param>
+            <param-name>default-index-file</param-name>
+            <param-value>index</param-value>
+        </init-param>
+        <init-param>
+            <param-name>new-file-template</param-name>
+            <param-value>/newFileTemplate</param-value>
+        </init-param>
+
+
+
+    </servlet>
 
     <servlet>
         <servlet-name>sitemesh-freemarker</servlet-name>
@@ -469,9 +484,7 @@
 
     <!-- Establish the default list of welcome files -->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 
 </web-app>
