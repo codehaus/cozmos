@@ -1,13 +1,25 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title></title>
 </head>
 <body>
-Trying to create a new page?
-<br>
-Use any standard editor features:<br>
-Ctrl-B for <b>Bold</b><br>
-Ctrl-I for <i>Italics</i><br>
-etc
+Trying to create a new page?<br/>
+<br/>
+Switch from browse to edit mode, by choosing "Edit" from the "File" menu. Or press its hot key (usually Ctrl-E)<br/>  
+
+<br/>
+Use any standard editor features:<br/>
+Ctrl-B for <b>Bold</b><br/>
+Ctrl-I for <i>Italics</i><br/>
+Ctrl-U for <i>Underline</i><br/>
+etc.<br/>
+<br/>
+Links are easy - just put them inside square brackets [like so]<br/>
+<br/>
+Hierachical directories are easy too [test/an example]<br/>
+<br/>
+Apple users: Apple-* key presses instead of Ctlr-*<br/>
 </body>
 </html>
