@@ -5,9 +5,9 @@
   <title></title>
 </head>
 <body>
-Trying to create a new page?<br/>
+Trying to create a new page?  It should be simple black text, on a white page without much styling, if it is not [review your setup]<br/>
 <br/>
-Switch from browse to edit mode, by choosing "Edit" from the "File" menu. Or press its hot key (usually Ctrl-E)<br/>  
+Switch from browse to edit mode, by choosing "Edit" from the "File" menu. Or press its hot key (usually Ctrl-E)<br/>
 
 <br/>
 Use any standard editor features:<br/>
@@ -16,10 +16,13 @@ Ctrl-I for <i>Italics</i><br/>
 Ctrl-U for <i>Underline</i><br/>
 etc.<br/>
 <br/>
-Links are easy - just put them inside square brackets [like so]<br/>
+Links are easy - just put them inside square brackets [like so] while editing, and when presented for the browser they are links<br/>
 <br/>
-Hierachical directories are easy too [test/an example]<br/>
+Hierachical directories are easy too [test/an example]. Spaces in wiki style links will be turned into underscores '_' automatically in the resulting file name.<br/>
+<br/>
+Tables, indented sections, preformated sections headings and embedded images are all possible. For images, wrap around text looks nice. Images will be copied to the Cozmos server from any location (local file system or another website).<br/>
 <br/>
 Apple users: Apple-* key presses instead of Ctlr-*<br/>
+<br/>
 </body>
-</html>
+</html>                         
