@@ -5,7 +5,8 @@
   <title>Customizing your Cozmos installation</title>
 </head>
 <body>
-Once you've read about <a href="http://www.opensymphony.com/sitemesh/">Sitemesh</a> you may want to edit the Cozmos Site decorator. It is in the war file in a folder called 'decorators'. You can't edit it over WebDAV unfortunately.
+Once you've read about <a href="http://www.opensymphony.com/sitemesh/">Sitemesh</a> which is key to Cozmos you may want to edit the Cozmos Site decorator. It is in the war file in a folder called 'decorators'. You can't edit it over WebDAV unfortunately.<br/>
+<br/>
 It goes in conjunction with the style of this the default Cozmos site. See /style/style.css if your going to tinker with it or even run the cozmos app in a context other than 'cozmos'.
 </body>
 </html>                         
