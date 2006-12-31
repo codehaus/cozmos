@@ -7,6 +7,8 @@
 <body>
 Once you've read about <a href="http://www.opensymphony.com/sitemesh/">Sitemesh</a> which is key to Cozmos you may want to edit the Cozmos Site decorator. It is in the war file in a folder called 'decorators'. You can't edit it over WebDAV unfortunately.<br/>
 <br/>
-It goes in conjunction with the style of this the default Cozmos site. See /style/style.css if your going to tinker with it or even run the cozmos app in a context other than 'cozmos'.
+It goes in conjunction with the style of this the default Cozmos site. See /style/style.css if your going to tinker with it or even run the cozmos app in a context other than 'cozmos'.<br/>
+<br/>
+The template used for this site pre-existed Cozmos. Originally at <a href="http://karenblundell.com/templates/Natural_Fluidity/index.html">http://karenblundell.com/templates/Natural_Fluidity/index.html</a> then modidied at <a href="http://www.oswd.org/design/preview/id/2959">http://www.oswd.org/design/preview/id/2959</a><br/>Any CSS based design would do.<br/>
 </body>
 </html>                         

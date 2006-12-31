@@ -12,11 +12,11 @@
 <h1>Cozmos</h1>
 </div>
 <ul id="nav">
-<li><a href="index.html" id="current">Link One</a></li>
-<li><a href="index.html">Link Two</a></li>
-<li><a href="index.html">Link Three</a></li>
-<li><a href="index.html">Link Four</a></li>
-<li><a href="index.html">Link Five</a></li>
+<li><a href="index" id="current">Link One</a></li>
+<li><a href="index">Link Two</a></li>
+<li><a href="index">Link Three</a></li>
+<li><a href="index">Link Four</a></li>
+<li><a href="index">Link Five</a></li>
 </ul>
 <div id="container">
 <div id="content">

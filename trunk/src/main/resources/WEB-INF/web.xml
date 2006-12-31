@@ -460,9 +460,4 @@
         <mime-type>application/msword</mime-type>
     </mime-mapping>
 
-    <!-- Establish the default list of welcome files -->
-    <welcome-file-list>
-        <welcome-file>index</welcome-file>
-    </welcome-file-list>
-
 </web-app>
