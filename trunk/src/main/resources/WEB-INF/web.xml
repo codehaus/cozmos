@@ -54,6 +54,14 @@
             <param-name>instead-of-404</param-name>
             <param-value>/newFileTemplate</param-value>
         </init-param>
+	    <init-param>
+	        <param-name>lazyFolderCreationOnPut</param-name>
+	        <param-value>1</param-value>
+	        <description>
+	            Overriding RFC 2518, the folders of resources being
+                created, can be created too if they do not exist.
+	        </description>
+	    </init-param>
     </servlet>
 
     <servlet-mapping>

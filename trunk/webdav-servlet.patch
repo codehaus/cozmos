@@ -1,11 +1,20 @@
 ? hammant.patch
 ? src/test
+Index: pom.xml
+===================================================================
+RCS file: /cvsroot/webdav-servlet/webdav-servlet/pom.xml,v
+retrieving revision 1.6
+diff -r1.6 pom.xml
+7c7
+< 	<packaging>war</packaging>
+---
+> 	<packaging>jar</packaging>
 Index: src/main/java/net/sf/webdav/LocalFileSystemStorage.java
 ===================================================================
 RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/LocalFileSystemStorage.java,v
-retrieving revision 1.3
-diff -r1.3 LocalFileSystemStorage.java
-73c73,84
+retrieving revision 1.4
+diff -r1.4 LocalFileSystemStorage.java
+71c71,82
 < 			root = new File(rootPath);
 ---
 >             if (rootPath.equals("*WAR-FILE-ROOT*")) {
@@ -20,22 +29,28 @@ diff -r1.3 LocalFileSystemStorage.java
 >             }
 >             root = new File(rootPath);
 > 
-287a299,302
->     public void makeFolder(String path) {
->         //To change body of implemented methods use File | Settings | File Templates.
->     }
-> 
 Index: src/main/java/net/sf/webdav/WebdavServlet.java
 ===================================================================
 RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/WebdavServlet.java,v
-retrieving revision 1.9
-diff -r1.9 WebdavServlet.java
+retrieving revision 1.10
+diff -r1.10 WebdavServlet.java
 34a35
 > import javax.servlet.RequestDispatcher;
-653,654d653
+176a178
+>     private boolean lazyFolderCreationOnPut;
+178c180
+< 	/**
+---
+>     /**
+218c220,221
+< 	}
+---
+>         lazyFolderCreationOnPut = fParameter.get("lazyFolderCreationOnPut") != null && fParameter.get("lazyFolderCreationOnPut").equals("1");
+>     }
+653,654d655
 < 		String lockOwner = "doGet" + System.currentTimeMillis()
 < 				+ req.toString();
-656c655,676
+656c657,678
 < 		if (fResLocks.lock(path, lockOwner, false, 0)) {
 ---
 >         try {
@@ -60,7 +75,7 @@ diff -r1.9 WebdavServlet.java
 >                 + req.toString();
 > 
 >         if (fResLocks.lock(path, lockOwner, false, 0)) {
-672,682c692,704
+672,682c694,706
 < 						if (resourceLength > 0) {
 < 							if (resourceLength <= Integer.MAX_VALUE) {
 < 								resp.setContentLength((int) resourceLength);
@@ -86,11 +101,11 @@ diff -r1.9 WebdavServlet.java
 >                                 }
 >                             }
 >                         }
-685c707
+685c709
 < 						String mimeType = getServletContext().getMimeType(path);
 ---
 >                         String mimeType = getServletContext().getMimeType(path);
-688c710,715
+688c712,717
 < 						}
 ---
 > 						} else {
@@ -99,7 +114,7 @@ diff -r1.9 WebdavServlet.java
 >                                 resp.setContentType("text/html");
 >                             }
 >                         }
-889,903c916,930
+889,903c918,932
 < 					if (parentPath != null && fStore.isFolder(parentPath)
 < 							&& !fStore.isFolder(path)) {
 < 						if (!fStore.objectExists(path)) {
@@ -116,7 +131,7 @@ diff -r1.9 WebdavServlet.java
 < 						resp.sendError(WebdavStatus.SC_CONFLICT);
 < 					}
 ---
->                     if (parentPath != null && !fStore.isFolder(parentPath)) {
+>                     if (parentPath != null && !fStore.isFolder(parentPath) && lazyFolderCreationOnPut) {
 >                         fStore.createFolder(parentPath);
 >                     }
 >                     if (!fStore.isFolder(path)) {
@@ -131,3 +146,20 @@ diff -r1.9 WebdavServlet.java
 >                         resp.setContentLength((int) fStore
 >                                 .getResourceLength(path));
 >                     }
+Index: src/main/webapp/WEB-INF/web.xml
+===================================================================
+RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/webapp/WEB-INF/web.xml,v
+retrieving revision 1.2
+diff -r1.2 web.xml
+43c43,51
+< 	</servlet>
+---
+> 	    <init-param>
+> 	        <param-name>lazyFolderCreationOnPut</param-name>
+> 	        <param-value>0</param-value>
+> 	        <description>
+> 	            Overriding RFC 2518, the folders of resources being
+>                 created, can be created too if they do not exist.
+> 	        </description>
+> 	    </init-param>
+>     </servlet>
