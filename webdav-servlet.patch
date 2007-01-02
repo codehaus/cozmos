@@ -1,0 +1,133 @@
+? hammant.patch
+? src/test
+Index: src/main/java/net/sf/webdav/LocalFileSystemStorage.java
+===================================================================
+RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/LocalFileSystemStorage.java,v
+retrieving revision 1.3
+diff -r1.3 LocalFileSystemStorage.java
+73c73,84
+< 			root = new File(rootPath);
+---
+>             if (rootPath.equals("*WAR-FILE-ROOT*")) {
+>                 String file = LocalFileSystemStorage.class.getProtectionDomain().getCodeSource().getLocation().getFile().replace('\\','/');
+>                 int ix = file.indexOf("/WEB-INF/");
+>                 if (ix != -1) {
+>                     rootPath = file.substring(0, ix);
+>                 } else {
+>                     throw new WebdavException("Could not determine root of war file. Can't extract from path '"
+>                             + file + "' for this web container");                    
+>                 }
+>             }
+>             root = new File(rootPath);
+> 
+287a299,302
+>     public void makeFolder(String path) {
+>         //To change body of implemented methods use File | Settings | File Templates.
+>     }
+> 
+Index: src/main/java/net/sf/webdav/WebdavServlet.java
+===================================================================
+RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/WebdavServlet.java,v
+retrieving revision 1.9
+diff -r1.9 WebdavServlet.java
+34a35
+> import javax.servlet.RequestDispatcher;
+653,654d653
+< 		String lockOwner = "doGet" + System.currentTimeMillis()
+< 				+ req.toString();
+656c655,676
+< 		if (fResLocks.lock(path, lockOwner, false, 0)) {
+---
+>         try {
+>             if (fStore.isFolder(path)) {
+>                 String dftIndxFile = getServletConfig().getInitParameter("default-index-file");
+>                 if (dftIndxFile != null) {
+>                     resp.sendRedirect(resp.encodeRedirectURL(req.getRequestURI() + dftIndxFile));
+>                     return;
+>                 }
+>             }
+>             if (!fStore.objectExists(path)) {
+>                 String insteadOf404 = getServletConfig().getInitParameter("instead-of-404");
+>                 if (insteadOf404 != null) {
+>                     path = insteadOf404;
+>                 }
+>             }
+> 
+>         } catch (WebdavException e) {
+>         }
+> 
+>         String lockOwner = "doGet" + System.currentTimeMillis()
+>                 + req.toString();
+> 
+>         if (fResLocks.lock(path, lockOwner, false, 0)) {
+672,682c692,704
+< 						if (resourceLength > 0) {
+< 							if (resourceLength <= Integer.MAX_VALUE) {
+< 								resp.setContentLength((int) resourceLength);
+< 							} else {
+< 								resp.setHeader("content-length", ""
+< 										+ resourceLength);
+< 								// is "content-length" the right header? is long
+< 								// a valid format?
+< 							}
+< 
+< 						}
+---
+>                         String contLength = getServletConfig().getInitParameter("no-content-length-headers");
+>                         if (contLength == null) {
+>                             if (resourceLength > 0) {
+>                                 if (resourceLength <= Integer.MAX_VALUE) {
+>                                     resp.setContentLength((int) resourceLength);
+>                                 } else {
+>                                     resp.setHeader("content-length", ""
+>                                             + resourceLength);
+>                                     // is "content-length" the right header? is long
+>                                     // a valid format?
+>                                 }
+>                             }
+>                         }
+685c707
+< 						String mimeType = getServletContext().getMimeType(path);
+---
+>                         String mimeType = getServletContext().getMimeType(path);
+688c710,715
+< 						}
+---
+> 						} else {
+>                             int lastSlash = path.replace('\\','/').lastIndexOf('/');
+>                             if (path.indexOf(".",lastSlash) == -1) {
+>                                 resp.setContentType("text/html");
+>                             }
+>                         }
+889,903c916,930
+< 					if (parentPath != null && fStore.isFolder(parentPath)
+< 							&& !fStore.isFolder(path)) {
+< 						if (!fStore.objectExists(path)) {
+< 							fStore.createResource(path);
+< 							resp.setStatus(HttpServletResponse.SC_CREATED);
+< 						} else {
+< 							resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+< 						}
+< 						fStore.setResourceContent(path, req.getInputStream(),
+< 								null, null);
+< 						resp.setContentLength((int) fStore
+< 								.getResourceLength(path));
+< 					} else {
+< 						resp.sendError(WebdavStatus.SC_CONFLICT);
+< 					}
+---
+>                     if (parentPath != null && !fStore.isFolder(parentPath)) {
+>                         fStore.createFolder(parentPath);
+>                     }
+>                     if (!fStore.isFolder(path)) {
+>                         if (!fStore.objectExists(path)) {
+>                             fStore.createResource(path);
+>                             resp.setStatus(HttpServletResponse.SC_CREATED);
+>                         } else {
+>                             resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+>                         }
+>                         fStore.setResourceContent(path, req.getInputStream(),
+>                                 null, null);
+>                         resp.setContentLength((int) fStore
+>                                 .getResourceLength(path));
+>                     }
