@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006, ThoughtWorks, Inc.
+ * Copyright (c) 2006, 2007 ThoughtWorks, Inc.
  * 
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
