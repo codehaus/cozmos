@@ -25,14 +25,25 @@ import com.opensymphony.module.sitemesh.mapper.AbstractDecoratorMapper;
 import com.opensymphony.module.sitemesh.mapper.DefaultDecorator;
 
 public class EditModeDecoratorMapper extends AbstractDecoratorMapper {
-    private static final String TEMPORARY_HACK = "/decorators/site.jsp";
+    private static final String MAIN_DECORATOR = "/decorators/site.jsp";
 
     public Decorator getDecorator(HttpServletRequest request, Page page) {
-        String pathToDecorator = TEMPORARY_HACK;
+        String pathToDecorator = MAIN_DECORATOR;
 
-        if ("true".equalsIgnoreCase(request.getParameter("editMode"))) {
+        if (isHackedComposer(request) | isMsWord(request)) {
             return null;
         }
         return new DefaultDecorator(pathToDecorator, pathToDecorator, null);
     }
+
+    private boolean isMsWord(HttpServletRequest request) {
+        String ua = request.getHeader("user-agent");
+        return ua != null && ua.equals("Microsoft Data Access Internet Publishing Provider DAV");
+    }
+
+    private boolean isHackedComposer(HttpServletRequest request) {
+        return "true".equalsIgnoreCase(request.getParameter("editMode"));
+    }
+
+
 }
