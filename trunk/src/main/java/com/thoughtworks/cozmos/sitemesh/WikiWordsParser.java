@@ -22,6 +22,7 @@ import com.opensymphony.module.sitemesh.html.TextFilter;
 import com.opensymphony.module.sitemesh.html.rules.PageBuilder;
 import com.opensymphony.module.sitemesh.parser.HTMLPageParser;
 import com.thoughtworks.cozmos.WikiWordsConvertor;
+import com.thoughtworks.cozmos.ExtraneousWordDocConvertor;
 
 public class WikiWordsParser extends HTMLPageParser {
 
@@ -30,7 +31,9 @@ public class WikiWordsParser extends HTMLPageParser {
 
         html.addTextFilter(new TextFilter() {
             public String filter(String text) {
-                return new WikiWordsConvertor(text).convert();
+                text = new WikiWordsConvertor(text).convert();
+                text = new ExtraneousWordDocConvertor(text).convert();
+                return text;
             }
         });
     }
