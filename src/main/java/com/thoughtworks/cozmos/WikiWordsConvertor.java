@@ -23,9 +23,9 @@ import java.util.regex.Pattern;
 public class WikiWordsConvertor {
     private static final String ANYTHING_BETWEEN_SQUARE_BRACES = "\\[(.*?)\\]";
 
-    private static final Pattern WIKI_WORDS = Pattern.compile(ANYTHING_BETWEEN_SQUARE_BRACES);
+    private static final Pattern WIKI_WORDS = Pattern.compile(ANYTHING_BETWEEN_SQUARE_BRACES, Pattern.DOTALL);
 
-    private static final String SPACES = " ";
+    private static final String SPACE = " ";
 
     private static final String UNDERSCORE = "_";
 
@@ -56,10 +56,10 @@ public class WikiWordsConvertor {
     }
 
     private static String toAnchor(String wikiWord) {
-        return "<a href=\"" + underscorify(wikiWord) + "\">" + wikiWord + "</a>";
+        return "<a href=\"" + underscorify(wikiWord) + ".html\">" + wikiWord.replaceAll("\n", SPACE) + "</a>";
     }
 
     private static String underscorify(String wikiWord) {
-        return wikiWord.replaceAll(SPACES, UNDERSCORE);
+        return wikiWord.replaceAll(SPACE, UNDERSCORE).replaceAll("\n", UNDERSCORE);
     }
 }
