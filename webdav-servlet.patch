@@ -14,14 +14,18 @@ Index: src/main/java/net/sf/webdav/LocalFileSystemStorage.java
 RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/LocalFileSystemStorage.java,v
 retrieving revision 1.4
 diff -r1.4 LocalFileSystemStorage.java
-71c71,82
+71c71,86
 < 			root = new File(rootPath);
 ---
 >             if (rootPath.equals("*WAR-FILE-ROOT*")) {
 >                 String file = LocalFileSystemStorage.class.getProtectionDomain().getCodeSource().getLocation().getFile().replace('\\','/');
+>                 if (file.charAt(0) == '/' && System.getProperty("os.name").indexOf("Windows") != -1) {
+>                     file = file.substring(1, file.length());
+>                 }
+> 
 >                 int ix = file.indexOf("/WEB-INF/");
 >                 if (ix != -1) {
->                     rootPath = file.substring(0, ix);
+>                     rootPath = file.substring(0, ix).replace('/', File.separatorChar);
 >                 } else {
 >                     throw new WebdavException("Could not determine root of war file. Can't extract from path '"
 >                             + file + "' for this web container");                    
@@ -29,6 +33,28 @@ diff -r1.4 LocalFileSystemStorage.java
 >             }
 >             root = new File(rootPath);
 > 
+151c166,169
+< 			throw new WebdavException(e);
+---
+>             if (debug == 1)
+> 			System.out.println("LocalFileSystemStore.createResource(" + uri
+> 					+ ") failed");
+>             throw new WebdavException(e);
+185c203,206
+< 			throw new WebdavException(e);
+---
+>             if (debug == 1)
+> 			System.out.println("LocalFileSystemStore.setResourceContent(" + uri
+> 					+ ") failed");
+>             throw new WebdavException(e);
+253c274,278
+< 			throw new WebdavException(e);
+---
+>             if (debug == 1)
+> 			System.out.println("LocalFileSystemStore.getResourceContent(" + uri
+> 					+ ") failed");
+> 
+>             throw new WebdavException(e);
 Index: src/main/java/net/sf/webdav/WebdavServlet.java
 ===================================================================
 RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/java/net/sf/webdav/WebdavServlet.java,v
@@ -42,17 +68,51 @@ diff -r1.10 WebdavServlet.java
 < 	/**
 ---
 >     /**
-218c220,221
+218c220,222
 < 	}
 ---
 >         lazyFolderCreationOnPut = fParameter.get("lazyFolderCreationOnPut") != null && fParameter.get("lazyFolderCreationOnPut").equals("1");
+> 
 >     }
-653,654d655
+433c437
+< 			return (result);
+---
+>             return (result);
+523c527,530
+< 		String lockOwner = "doOptions" + System.currentTimeMillis()
+---
+>         if (fdebug == 1)
+>         System.err.println("-- doOptions");
+> 
+>         String lockOwner = "doOptions" + System.currentTimeMillis()
+559c566,570
+< 		// Retrieve the resources
+---
+>         if (fdebug == 1)
+>         System.err.println("-- doPropfind");
+> 
+> 
+>         // Retrieve the resources
+629c640,644
+< 		if (readOnly) {
+---
+>         if (fdebug == 1)
+>         System.err.println("-- doProppatch");
+> 
+> 
+>         if (readOnly) {
+653,656c668,695
 < 		String lockOwner = "doGet" + System.currentTimeMillis()
 < 				+ req.toString();
-656c657,678
+< 		String path = getRelativePath(req);
 < 		if (fResLocks.lock(path, lockOwner, false, 0)) {
 ---
+> 
+>         String path = getRelativePath(req);
+> 
+>         if (fdebug == 1)
+>         System.err.println("-- doGet " + path);
+> 
 >         try {
 >             if (fStore.isFolder(path)) {
 >                 String dftIndxFile = getServletConfig().getInitParameter("default-index-file");
@@ -75,7 +135,7 @@ diff -r1.10 WebdavServlet.java
 >                 + req.toString();
 > 
 >         if (fResLocks.lock(path, lockOwner, false, 0)) {
-672,682c694,706
+672,682c711,723
 < 						if (resourceLength > 0) {
 < 							if (resourceLength <= Integer.MAX_VALUE) {
 < 								resp.setContentLength((int) resourceLength);
@@ -101,20 +161,58 @@ diff -r1.10 WebdavServlet.java
 >                                 }
 >                             }
 >                         }
-685c709
+685c726
 < 						String mimeType = getServletContext().getMimeType(path);
 ---
 >                         String mimeType = getServletContext().getMimeType(path);
-688c712,717
+688c729,735
 < 						}
 ---
 > 						} else {
 >                             int lastSlash = path.replace('\\','/').lastIndexOf('/');
->                             if (path.indexOf(".",lastSlash) == -1) {
+>                             int lastDot = path.indexOf(".", lastSlash);
+>                             if (lastDot == -1) {
 >                                 resp.setContentType("text/html");
 >                             }
 >                         }
-889,903c918,932
+756a804,805
+>         if (fdebug == 1)
+>         System.err.println("-- doHead");
+760c809,811
+< 	/**
+---
+> 
+> 
+>     /**
+773c824,828
+< 		if (req.getContentLength() != 0) {
+---
+>         if (fdebug == 1)
+>         System.err.println("-- doMkcol");
+> 
+> 
+>         if (req.getContentLength() != 0) {
+839c894,898
+< 		if (!readOnly) {
+---
+>         if (fdebug == 1)
+>         System.err.println("-- doDelete");
+> 
+> 
+>         if (!readOnly) {
+882,883c941,946
+< 		if (!readOnly) {
+< 			String path = getRelativePath(req);
+---
+> 
+>         if (fdebug == 1)
+>         System.err.println("-- doPut");
+> 
+>         if (!readOnly) {
+>             String path = getRelativePath(req);
+887,903c950,966
+< 			if (fResLocks.lock(path, lockOwner, true, -1)) {
+< 				try {
 < 					if (parentPath != null && fStore.isFolder(parentPath)
 < 							&& !fStore.isFolder(path)) {
 < 						if (!fStore.objectExists(path)) {
@@ -131,6 +229,8 @@ diff -r1.10 WebdavServlet.java
 < 						resp.sendError(WebdavStatus.SC_CONFLICT);
 < 					}
 ---
+>             if (fResLocks.lock(path, lockOwner, true, -1)) {
+>                 try {
 >                     if (parentPath != null && !fStore.isFolder(parentPath) && lazyFolderCreationOnPut) {
 >                         fStore.createFolder(parentPath);
 >                     }
@@ -146,6 +246,39 @@ diff -r1.10 WebdavServlet.java
 >                         resp.setContentLength((int) fStore
 >                                 .getResourceLength(path));
 >                     }
+905c968
+< 					resp.sendError(WebdavStatus.SC_FORBIDDEN);
+---
+>                     resp.sendError(WebdavStatus.SC_FORBIDDEN);
+907c970
+< 					resp.sendError(WebdavStatus.SC_INTERNAL_SERVER_ERROR);
+---
+>                     resp.sendError(WebdavStatus.SC_INTERNAL_SERVER_ERROR);
+912c975
+< 				resp.sendError(WebdavStatus.SC_INTERNAL_SERVER_ERROR);
+---
+>                 resp.sendError(WebdavStatus.SC_INTERNAL_SERVER_ERROR);
+915c978
+< 			resp.sendError(WebdavStatus.SC_FORBIDDEN);
+---
+>             resp.sendError(WebdavStatus.SC_FORBIDDEN);
+935c998,1003
+< 		String path = getRelativePath(req);
+---
+>         if (fdebug == 1)
+>         System.err
+>                 .println("-- doCopy");
+> 
+> 
+>         String path = getRelativePath(req);
+982c1050,1054
+< 			String path = getRelativePath(req);
+---
+>             if (fdebug == 1)
+>             System.err.println("-- doMove");
+> 
+> 
+>             String path = getRelativePath(req);
 Index: src/main/webapp/WEB-INF/web.xml
 ===================================================================
 RCS file: /cvsroot/webdav-servlet/webdav-servlet/src/main/webapp/WEB-INF/web.xml,v
