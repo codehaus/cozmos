@@ -37,22 +37,26 @@
 	    </init-param>
 	    <init-param>
 	        <param-name>storeDebug</param-name>
-	        <param-value>0</param-value>
+	        <param-value>1</param-value>
 	        <description>
 	            triggers debug output of the ResourceHandlerImplementation
 	        </description>
 	    </init-param>
+        <init-param>
+            <param-name>servletDebug</param-name>
+            <param-value>1</param-value>
+        </init-param>
         <init-param>
             <param-name>no-content-length-headers</param-name>
             <param-value/>
         </init-param>
         <init-param>
             <param-name>default-index-file</param-name>
-            <param-value>index</param-value>
+            <param-value>index.html</param-value>
         </init-param>
         <init-param>
             <param-name>instead-of-404</param-name>
-            <param-value>/newFileTemplate</param-value>
+            <param-value>/newFileTemplate.html</param-value>
         </init-param>
 	    <init-param>
 	        <param-name>lazyFolderCreationOnPut</param-name>
@@ -62,6 +66,14 @@
                 created, can be created too if they do not exist.
 	        </description>
 	    </init-param>
+        <init-param>
+            <param-name>fileNamesDoNotEndWithDot</param-name>
+            <param-value>1</param-value>
+            <description>
+                MS Word does not like files without suffix. It adds an extraneous "." to the name on publish.
+            </description>
+        </init-param>
+
     </servlet>
 
     <servlet-mapping>
@@ -467,5 +479,9 @@
         <extension>doc</extension>
         <mime-type>application/msword</mime-type>
     </mime-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>
