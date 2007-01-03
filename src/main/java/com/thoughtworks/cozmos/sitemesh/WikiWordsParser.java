@@ -31,8 +31,8 @@ public class WikiWordsParser extends HTMLPageParser {
 
         html.addTextFilter(new TextFilter() {
             public String filter(String text) {
-                text = new WikiWordsConvertor(text).convert();
                 text = new ExtraneousWordDocConvertor(text).convert();
+                text = new WikiWordsConvertor(text).convert();
                 return text;
             }
         });
