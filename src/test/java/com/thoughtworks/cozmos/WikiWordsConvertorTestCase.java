@@ -32,7 +32,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     public void testShouldNotConvertHTMLAnchors() throws Exception {
-        WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link\">not a wiki link</a>");
+        WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link.html\">not a wiki link</a>");
         assertEquals(anchor("not_a_wiki_link", "not a wiki link"), convertor.convert());
     }
 
@@ -53,6 +53,13 @@ public class WikiWordsConvertorTestCase extends TestCase {
         WikiWordsConvertor multiWordConvertor = convertor("[foo bar][goo gle]");
         assertEquals(anchor("foo_bar", "foo bar") + anchor("goo_gle", "goo gle"), multiWordConvertor.convert());
     }
+
+    // Sometimes Composer splits [an apparent link] over more than one line.
+    public void testShouldConvertMultipleLineWikiWordToAnchors() throws Exception {
+        WikiWordsConvertor simpleConvertor = convertor("[foo\nbar]");
+        assertEquals(anchor("foo_bar", "foo bar"), simpleConvertor.convert());
+    }
+
 
     public void testShouldNotConvertMismatchedLeftSquareBraces() throws Exception {
         WikiWordsConvertor emptyLeftSquareBraceConvertor = convertor("[[broken]");
@@ -89,7 +96,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     private static String anchor(String href, String label) {
-        return "<a href=\"" + href + "\">" + label + "</a>";
+        return "<a href=\"" + href + ".html\">" + label + "</a>";
     }
 
     private static WikiWordsConvertor convertor(String wikiText) {
