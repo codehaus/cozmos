@@ -28,13 +28,6 @@ public class WikiWordsParser extends HTMLPageParser {
 
     protected void addUserDefinedRules(State html, PageBuilder page) {
         super.addUserDefinedRules(html, page);
-
-        html.addTextFilter(new TextFilter() {
-            public String filter(String text) {
-                text = new ExtraneousWordDocConvertor(text).convert();
-                text = new WikiWordsConvertor(text).convert();
-                return text;
-            }
-        });
+        html.addTextFilter(new CozmosTextFilter());
     }
 }

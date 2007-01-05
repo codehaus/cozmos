@@ -66,13 +66,6 @@
                 created, can be created too if they do not exist.
 	        </description>
 	    </init-param>
-        <init-param>
-            <param-name>fileNamesDoNotEndWithDot</param-name>
-            <param-value>1</param-value>
-            <description>
-                MS Word does not like files without suffix. It adds an extraneous "." to the name on publish.
-            </description>
-        </init-param>
 
     </servlet>
 
