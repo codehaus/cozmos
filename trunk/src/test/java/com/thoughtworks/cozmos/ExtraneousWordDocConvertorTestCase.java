@@ -34,8 +34,11 @@ public class ExtraneousWordDocConvertorTestCase extends TestCase {
         assertEquals("AB", convertor.convert());
     }
 
-
-
+    public void testShouldConvertBothSpellingAndGrammarMistakes() throws Exception {
+        ExtraneousWordDocConvertor convertor = convertor("<span class=SpellE>Teh</span> <span class=GramE>brown quick</span>");
+        assertEquals("Teh brown quick", convertor.convert());
+    }
+    
     private static ExtraneousWordDocConvertor convertor(String pageText) {
         return new ExtraneousWordDocConvertor(pageText);
     }
