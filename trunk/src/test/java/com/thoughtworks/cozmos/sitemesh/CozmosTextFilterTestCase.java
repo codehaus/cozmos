@@ -9,7 +9,7 @@ public class CozmosTextFilterTestCase extends TestCase {
 
         String before = ""; 
 
-        textFilter.filter();
+//        textFilter.filter();
     }
 
 }
