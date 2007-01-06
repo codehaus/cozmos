@@ -5,15 +5,12 @@ import java.util.regex.Matcher;
 
 public class ExtraneousWordDocConvertor {
 
-
     private static final Pattern SPELLING_ISSUES = Pattern.compile("<span class=SpellE>(.*?)</span>", Pattern.DOTALL);
     private static final Pattern GRAMMAR_ISSUES = Pattern.compile("<span class=GramE>(.*?)</span>", Pattern.DOTALL);
-
 
     private String pageText;
 
     public ExtraneousWordDocConvertor(String pageText) {
-
         this.pageText = pageText;
     }
 
@@ -41,5 +38,4 @@ public class ExtraneousWordDocConvertor {
     private static int endingPoint(int startingPoint, Matcher matcher) {
         return startingPoint + matcher.end() - matcher.start();
     }
-
 }
