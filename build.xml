@@ -8,24 +8,18 @@
     <import file="build-paths.xml" />
     <import file="build-delegates.xml" />
 
-    <target name="bump-major" depends="-bump-major" description="--> Bumps major version number">
-    </target>
+    <target name="bump-major" depends="-bump-major" description="--> Bumps major version number" />
 
-    <target name="bump-minor" depends="-bump-minor" description="--> Bumps minor version number">
-    </target>
+    <target name="bump-minor" depends="-bump-minor" description="--> Bumps minor version number" />
 
-    <target name="clean" depends="-clean" description="--> Cleans all build artifacts and temporary files">
-    </target>
+    <target name="clean" depends="-clean" description="--> Cleans all build artifacts and temporary files" />
 
-    <target name="full" depends="-full" description="--> Cleans, then builds a release">
-    </target>
+    <target name="full" depends="-full" description="--> Cleans, then builds a release" />
 
     <target name="release"
             depends="-release"
             description="--> Compiles, tests, and packages a binary file for distribution"
-    >
-    </target>
+    />
 
-    <target name="test" depends="-test" description="--> Compiles all source, then runs all tests">
-    </target>
+    <target name="test" depends="-test" description="--> Compiles all source, then runs all tests" />
 </project>

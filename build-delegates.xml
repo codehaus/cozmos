@@ -6,27 +6,19 @@
 
     <import file="build-targets.xml" />
 
-    <target name="-bump-major" depends="--bump-major,--zero-minor,--zero">
-    </target>
+    <target name="-bump-major" depends="--bump-major,--zero-minor,--zero" />
 
-    <target name="-bump-minor" depends="--bump-minor,--zero">
-    </target>
+    <target name="-bump-minor" depends="--bump-minor,--zero" />
 
-    <target name="-clean" depends="--clean">
-    </target>
+    <target name="-clean" depends="--clean" />
 
-    <target name="-compile" depends="--compile-init,--compile">
-    </target>
+    <target name="-compile" depends="--compile-init,--compile" />
 
-    <target name="-full" depends="-clean,-release">
-    </target>
+    <target name="-full" depends="-clean,-release" />
 
-    <target name="-javadoc" depends="--javadoc-init,--javadoc">
-    </target>
+    <target name="-javadoc" depends="--javadoc-init,--javadoc" />
 
-    <target name="-release" depends="-test,-javadoc,--release-init,--release,--release-docs,--release-src,--bump">
-    </target>
+    <target name="-release" depends="-test,-javadoc,--release-init,--release,--release-docs,--release-src,--bump" />
 
-    <target name="-test" depends="-compile,--test-init,--test-compile,--test,--test-report">
-    </target>
+    <target name="-test" depends="-compile,--test-init,--test-compile,--test,--test-report" />
 </project>
