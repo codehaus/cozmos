@@ -35,10 +35,20 @@ public class ExtraneousWordDocConvertorTestCase extends TestCase {
     }
 
     public void testShouldConvertBothSpellingAndGrammarMistakes() throws Exception {
-        ExtraneousWordDocConvertor convertor = convertor("<span class=SpellE>Teh</span> <span class=GramE>brown quick</span>");
-        assertEquals("Teh brown quick", convertor.convert());
+        ExtraneousWordDocConvertor convertor = convertor("<span class=SpellE>DOESN'T</span> <span class=GramE>MATTER</span>");
+        assertEquals("DOESN'T MATTER", convertor.convert());
     }
-    
+
+    public void testShouldConvertSpellingMistakesThatSpanMultipleLines() throws Exception {
+        ExtraneousWordDocConvertor convertor = convertor("<span class=SpellE>\nDOESN'T MATTER</span>");
+        assertEquals("DOESN'T MATTER", convertor.convert());
+    }
+
+    public void testShouldConvertGrammarMistakesThatSpanMultipleLines() throws Exception {
+        ExtraneousWordDocConvertor convertor = convertor("<span class=GramE>\nDOESN'T MATTER</span>");
+        assertEquals("DOESN'T MATTER", convertor.convert());
+    }
+
     private static ExtraneousWordDocConvertor convertor(String pageText) {
         return new ExtraneousWordDocConvertor(pageText);
     }

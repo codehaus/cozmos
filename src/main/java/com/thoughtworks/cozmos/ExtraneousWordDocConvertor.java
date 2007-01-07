@@ -31,8 +31,7 @@ public class ExtraneousWordDocConvertor {
             buffer.replace(startingPoint, endingPoint, phrase);
         }
 
-        return buffer.toString();
-
+        return buffer.toString().trim();
     }
 
     private static int endingPoint(int startingPoint, Matcher matcher) {
