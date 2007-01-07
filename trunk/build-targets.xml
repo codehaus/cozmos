@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<project>
+    <description>
+        Common functional targets shared across all submodules.
+    </description>
+
+    <macrodef name="bump-number">
+        <attribute name="level" default="build.number" />
+        <sequential>
+            <propertyfile file="build-numbers.properties" comment=" Version numbers">
+                <entry key="@{level}" default="0" type="int" operation="+" />
+            </propertyfile>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="zero-number">
+        <attribute name="level" default="build.number" />
+        <sequential>
+            <propertyfile file="build-numbers.properties" comment=" Version numbers">
+                <entry key="@{level}" value="0" default="0" type="int" />
+            </propertyfile>
+        </sequential>
+    </macrodef>
+
+    <target name="--clean">
+        <delete dir="target" />
+    </target>
+
+    <target name="--compile-init">
+        <mkdir dir="target/classes" />
+    </target>
+
+    <target name="--compile">
+        <javac srcdir="src/main/java"
+               destdir="target/classes"
+               debug="on"
+               classpathref="compile.path"
+               source="1.4"
+               target="1.4"
+        />
+    </target>
+
+    <target name="--javadoc-init">
+        <mkdir dir="target/docs/api" />
+    </target>
+
+    <target name="--javadoc">
+        <javadoc sourcepath="src/main/java"
+                 destdir="target/docs/api"
+                 packagenames="com.thoughtworks.cozmos.*"
+                 breakiterator="yes"
+                 failonerror="true"
+                 classpathref="compile.out"
+        />
+    </target>
+
+    <target name="--release-init">
+        <mkdir dir="target/dist" />
+    </target>
+
+    <target name="--release">
+        <zip destfile="target/dist/${ant.project.name}-${version.number}.war">
+            <zipfileset dir="target/classes" prefix="WEB-INF/classes" />
+            <fileset dir="src/main/resources" />
+            <zipfileset dir="lib/sitemesh-2.3" includes="sitemesh-2.3.jar" prefix="WEB-INF/lib" />
+            <zipfileset dir="lib/webdav-servlet-1.3" includes="webdav-servlet-1.3.jar" prefix="WEB-INF/lib" />
+        </zip>
+    </target>
+
+    <target name="--release-docs">
+        <zip destfile="target/dist/${ant.project.name}-docs-${version.number}.zip">
+            <fileset dir="target/docs" />
+        </zip>
+    </target>
+
+    <target name="--release-src">
+        <zip destfile="target/dist/${ant.project.name}-src-${version.number}.zip">
+            <fileset dir="." excludes="target/**,.classes-ide/**" />
+        </zip>
+    </target>
+
+    <target name="--bump">
+        <bump-number />
+    </target>
+
+    <target name="--bump-major">
+        <bump-number level="build.major" />
+    </target>
+
+    <target name="--bump-minor">
+        <bump-number level="build.minor" />
+    </target>
+
+    <target name="--zero">
+        <zero-number />
+    </target>
+
+    <target name="--zero-minor">
+        <zero-number level="build.minor" />
+    </target>
+
+    <target name="--test-init">
+        <mkdir dir="target/test-classes" />
+        <mkdir dir="target/test-results" />
+        <mkdir dir="target/test-report" />
+    </target>
+
+    <target name="--test-compile">
+        <javac srcdir="src/test/java"
+               destdir="target/test-classes"
+               debug="on"
+               classpathref="test.compile.path"
+               source="1.4"
+               target="1.4"
+        />
+    </target>
+
+    <target name="--test">
+        <junit haltonfailure="yes" fork="no" printsummary="no">
+            <classpath refid="test.run.path" />
+
+            <formatter type="brief" usefile="no" />
+            <formatter type="xml" usefile="yes" />
+
+            <batchtest fork="no" todir="target/test-results">
+                <fileset dir="src/test/java">
+                    <include name="**/*Test*.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="--test-report">
+        <junitreport todir="target/test-report">
+            <fileset dir="target/test-results">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report format="frames" todir="target/test-report/html" />
+        </junitreport>
+    </target>
+</project>
