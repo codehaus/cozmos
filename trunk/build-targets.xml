@@ -35,8 +35,8 @@
                destdir="target/classes"
                debug="on"
                classpathref="compile.path"
-               source="1.4"
-               target="1.4"
+               source="${java.source.version}"
+               target="${java.source.version}"
         />
     </target>
 
@@ -117,8 +117,8 @@
                destdir="target/test-classes"
                debug="on"
                classpathref="test.compile.path"
-               source="1.4"
-               target="1.4"
+               source="${java.source.version}"
+               target="${java.source.version}"
         />
     </target>
 
