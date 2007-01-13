@@ -1,22 +1,22 @@
 package com.thoughtworks.cozmos;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.net.Socket;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.LineNumberReader;
 import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.Socket;
+import java.net.URL;
 import java.util.StringTokenizer;
 
-public class WebDavProxyServlet2 extends HttpServlet {
+public class ModDavSvnProxyServlet2 extends HttpServlet {
 
     private String targetURL;
     private String newPageTemplate;
@@ -104,7 +104,7 @@ public class WebDavProxyServlet2 extends HttpServlet {
     }
 
     private Socket startGet(URL url) throws IOException {
-        Socket socket = new Socket(url.getHost(),80);
+        Socket socket = new Socket(url.getHost(), 80);
 
         PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
 

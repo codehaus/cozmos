@@ -1,26 +1,18 @@
 package com.thoughtworks.cozmos;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
-import javax.servlet.GenericServlet;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.ServletConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.CharArrayWriter;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.net.MalformedURLException;
-import java.util.Enumeration;
+import java.net.URL;
 
-public class WebDavProxyServlet extends HttpServlet {
+public class ModDavSvnProxyServlet extends HttpServlet {
 
     private String targetURL;
     private String newPageTemplate;
