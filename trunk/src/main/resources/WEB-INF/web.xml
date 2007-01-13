@@ -432,10 +432,6 @@
         <mime-type>video/mpeg2</mime-type>
     </mime-mapping>
     <mime-mapping>
-        <extension>jpg</extension>
-        <mime-type>image/pjpeg</mime-type>
-    </mime-mapping>
-    <mime-mapping>
         <extension>sgml</extension>
         <mime-type>text/sgml</mime-type>
     </mime-mapping>
