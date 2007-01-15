@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2006, 2007 ThoughtWorks, Inc.
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ */
 package com.thoughtworks.cozmos;
 
 import javax.servlet.ServletConfig;
@@ -20,34 +36,11 @@ public class ModDavSvnProxyServlet2 extends HttpServlet {
 
     private String targetURL;
     private String newPageTemplate;
-    private String passwordForGet;
-    private String usernameForGet;
-    private String host;
 
     public void init(ServletConfig servletConfig) throws ServletException {
 
         targetURL = servletConfig.getInitParameter("mod_dav_svn_url");
         newPageTemplate = servletConfig.getInitParameter("new_page_template_file");
-        //usernameForGet = servletConfig.getInitParameter("username_for_get");
-        //passwordForGet = servletConfig.getInitParameter("password_for_get");
-        try {
-            host = new URL(targetURL).getHost();
-        } catch (MalformedURLException e) {
-            throw new ServletException(e);
-        }
-
-        // WTF is setDefault global ?
-//        Authenticator.setDefault(new Authenticator() {
-//            protected PasswordAuthentication getPasswordAuthentication() {
-//                System.out.println("--> h " + getRequestingHost());
-//                if (getRequestingHost().equals(host)) {
-//                return new PasswordAuthentication(
-//                        usernameForGet, passwordForGet.toCharArray());
-//                } else {
-//                    return null;
-//                }
-//            }
-//        });
         super.init(servletConfig);
 
 

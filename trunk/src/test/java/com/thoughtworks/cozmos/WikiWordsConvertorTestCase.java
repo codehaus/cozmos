@@ -21,32 +21,32 @@ import junit.framework.TestCase;
 
 public class WikiWordsConvertorTestCase extends TestCase {
 
-    public void testShouldNotConvertEmptyText() throws Exception {
+    public void testShouldNotConvertEmptyText() {
         WikiWordsConvertor convertor = convertor("");
         assertEquals("", convertor.convert());
     }
 
-    public void testShouldNotConvertPlainText() throws Exception {
+    public void testShouldNotConvertPlainText() {
         WikiWordsConvertor convertor = convertor("The quick brown fox");
         assertEquals("The quick brown fox", convertor.convert());
     }
 
-    public void testShouldNotConvertHTMLAnchors() throws Exception {
+    public void testShouldNotConvertHTMLAnchors()  {
         WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link.html\">not a wiki link</a>");
         assertEquals(anchor("not_a_wiki_link", "not a wiki link"), convertor.convert());
     }
 
-    public void testShouldConvertSingleWordWikiWordLinkToSimpleHTMLAnchor() throws Exception {
+    public void testShouldConvertSingleWordWikiWordLinkToSimpleHTMLAnchor() {
         WikiWordsConvertor convertor = convertor("[simple]");
         assertEquals(anchor("simple"), convertor.convert());
     }
 
-    public void testShouldConvertMultipleWordWikiWordLinksToHTMLAnchorsWithUnderscores() throws Exception {
+    public void testShouldConvertMultipleWordWikiWordLinksToHTMLAnchorsWithUnderscores()  {
         WikiWordsConvertor convertor = convertor("[more complicated]");
         assertEquals(anchor("more_complicated", "more complicated"), convertor.convert());
     }
 
-    public void testShouldConvertMultipleWikiWordLinksToSeparateHTMLAnchors() throws Exception {
+    public void testShouldConvertMultipleWikiWordLinksToSeparateHTMLAnchors()  {
         WikiWordsConvertor simpleConvertor = convertor("[foo][bar]");
         assertEquals(anchor("foo") + anchor("bar"), simpleConvertor.convert());
 
@@ -55,13 +55,13 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     // Sometimes Composer splits [an apparent link] over more than one line.
-    public void testShouldConvertMultipleLineWikiWordToAnchors() throws Exception {
+    public void testShouldConvertMultipleLineWikiWordToAnchors()  {
         WikiWordsConvertor simpleConvertor = convertor("[foo\nbar]");
         assertEquals(anchor("foo_bar", "foo bar"), simpleConvertor.convert());
     }
 
 
-    public void testShouldNotConvertMismatchedLeftSquareBraces() throws Exception {
+    public void testShouldNotConvertMismatchedLeftSquareBraces()  {
         WikiWordsConvertor emptyLeftSquareBraceConvertor = convertor("[[broken]");
         assertEquals("[[broken]", emptyLeftSquareBraceConvertor.convert());
 
@@ -69,17 +69,71 @@ public class WikiWordsConvertorTestCase extends TestCase {
         assertEquals("[word[broken]", errantLeftSquareBraceConvertor.convert());
     }
 
-    public void testShouldLeaveExtraRightSquareBracesAlone() throws Exception {
+    public void testShouldLeaveExtraRightSquareBracesAlone() {
         WikiWordsConvertor convertor = convertor("[broken]]");
         assertEquals(anchor("broken") + "]", convertor.convert());
     }
 
-    public void testShouldNotConvertWikiWordsWhichContainHTML() throws Exception {
-        WikiWordsConvertor fullHTMLTagConvertor = convertor("[with html <br>]");
-        assertEquals("[with html <br>]", fullHTMLTagConvertor.convert());
+    public void testShouldNotConvertWikiWordsWhichContainHTML()  {
+        WikiWordsConvertor convertor = convertor("[with html <br>]");
+        assertEquals("[with html <br>]", convertor.convert());
 
         WikiWordsConvertor errantLeftAngleBracketConvertor = convertor("[with html <]");
         assertEquals("[with html <]", errantLeftAngleBracketConvertor.convert());
+    }
+
+    public void testTroublesomeCase1() {
+        String foo = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r" +
+                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\r" +
+                "<head>\r" +
+                "  <title></title>\r" +
+                "</head>\r" +
+                "<body>\r" +
+                "hello<br>\r" +
+                "<br>\r" +
+                "d<img style=\"width: 196px; height: 273px;\" alt=\"foo\" src=\"wheaties.jpg\"><br>\r" +
+                "</body>\r" +
+                "</html>";
+        WikiWordsConvertor fullHTMLTagConvertor = convertor(foo);
+        assertEquals(foo, fullHTMLTagConvertor.convert());
+
+    }
+
+    public void testShouldHandleAlias() {
+        WikiWordsConvertor convertor = convertor("[leg of toad|witchcraft happens]");
+        assertEquals(anchor("witchcraft_happens","leg of toad"), convertor.convert());
+    }
+    public void testShouldNotHandleTwoBarsAsAlias() {
+        WikiWordsConvertor convertor = convertor("[leg of |toad|witchcraft happens]");
+        assertEquals("[leg of |toad|witchcraft happens]", convertor.convert());
+    }
+
+
+    public void testTickAfterLeftSquareBracketEscapesItAll() {
+        WikiWordsConvertor convertor = convertor("[~this one should not wikify but should omit the tilde]");
+        assertEquals("[this one should not wikify but should omit the tilde]", convertor.convert());
+    }
+
+    public void testMultipleWikiLinks() {
+        WikiWordsConvertor convertor = convertor("[one] two [three] four [five]");
+        assertEquals("<a href=\"one.html\">one</a> two <a href=\"three.html\">three</a> four <a href=\"five.html\">five</a>", convertor.convert());
+    }
+
+    public void testMultipleWikiLinksEachWithLongerAlias() {
+        WikiWordsConvertor convertor = convertor("[1|one] two [3|three] four [5|five]");
+        assertEquals("<a href=\"one.html\">1</a> two <a href=\"three.html\">3</a> four <a href=\"five.html\">5</a>", convertor.convert());
+    }
+
+    public void testMultipleWikiLinksEachWithShorterAlias() {
+        WikiWordsConvertor convertor = convertor("[one|1] two [three|3] four [five|5]");
+        assertEquals("<a href=\"1.html\">one</a> two <a href=\"3.html\">three</a> four <a href=\"5.html\">five</a>", convertor.convert());
+    }
+
+    public void testToubleSomeCase() {
+        WikiWordsConvertor convertor = convertor("x.\n" +
+                "Thus [~hello how are you|greeting] becomes [hello how are you|greeting].");
+        assertEquals("x.\n" +
+                "Thus [hello how are you|greeting] becomes <a href=\"greeting.html\">hello how are you</a>.", convertor.convert());
     }
 
     // public void testShouldIgnoreLeftSquareBracketsInsideHTMLPreTags() throws

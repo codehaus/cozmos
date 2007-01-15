@@ -14,7 +14,7 @@
     </filter-mapping>
   
     <servlet>
-	    <servlet-name>webdav-old</servlet-name>
+	    <servlet-name>webdav</servlet-name>
 	    <servlet-class>
 	        net.sf.webdav.WebdavServlet
 	    </servlet-class>
@@ -70,7 +70,7 @@
     </servlet>
 
     <servlet>
-	    <servlet-name>webdav</servlet-name>
+	    <servlet-name>webdav-n</servlet-name>
 	    <servlet-class>com.thoughtworks.cozmos.ModDavSvnProxyServlet</servlet-class>
         <init-param>
             <param-name>new_page_template_file</param-name>
