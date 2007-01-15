@@ -19,6 +19,7 @@ package com.thoughtworks.cozmos;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.StringTokenizer;
 
 public class WikiWordsConvertor {
     private static final String ANYTHING_BETWEEN_SQUARE_BRACES = "\\[(.*?)\\]";
@@ -29,34 +30,50 @@ public class WikiWordsConvertor {
 
     private static final String UNDERSCORE = "_";
 
-    private final String wikiText;
+    private final String textFragment;
 
-    public WikiWordsConvertor(String wikiText) {
-        this.wikiText = wikiText;
+    public WikiWordsConvertor(String textFragment) {
+        this.textFragment = textFragment;
     }
 
     public String convert() {
-        Matcher wikiWordsMatcher = WIKI_WORDS.matcher(wikiText);
-        StringBuffer buffer = new StringBuffer(wikiText);
+        Matcher wikiWordsMatcher = WIKI_WORDS.matcher(textFragment);
+        StringBuffer buffer = new StringBuffer(textFragment);
+        int nextStartingPoint = 0;
         while (wikiWordsMatcher.find()) {
-            int startingPoint = buffer.indexOf(wikiWordsMatcher.group());
-            int endingPoint = endingPoint(startingPoint, wikiWordsMatcher);
-
-            String wikiWord = wikiWordsMatcher.group(1);
-            if (wikiWord.indexOf('[') == -1 && wikiWord.indexOf('<') == -1) {
-                String anchor = toAnchor(wikiWord);
-                buffer.replace(startingPoint, endingPoint, anchor);
-            }
+            nextStartingPoint = processPotentialWikiWord(buffer, wikiWordsMatcher, nextStartingPoint);
         }
         return buffer.toString();
+    }
+
+    private int processPotentialWikiWord(StringBuffer buffer, Matcher wikiWordsMatcher, int fromThisPoint) {
+        int startingPoint = buffer.indexOf(wikiWordsMatcher.group(), fromThisPoint);
+        int endingPoint = endingPoint(startingPoint, wikiWordsMatcher);
+        String wikiPhrase = wikiWordsMatcher.group(1);
+       
+        String result = "[" + wikiPhrase + "]";
+        if (wikiPhrase.indexOf('[') == -1 && wikiPhrase.indexOf('<') == -1) {
+            if (wikiPhrase.charAt(0) == '~') {
+                buffer.replace(startingPoint, endingPoint, "[" + wikiPhrase.substring(1,wikiPhrase.length()) + "]");
+            } else {
+                StringTokenizer st = new StringTokenizer(wikiPhrase, "|");
+                if (st.countTokens() == 1) {
+                    result = toAnchor(wikiPhrase, wikiPhrase);
+                } else if (st.countTokens() == 2) {
+                    result = toAnchor(st.nextToken(), st.nextToken());
+                }
+                buffer.replace(startingPoint, endingPoint, result);
+            }
+        }
+        return startingPoint + 2;
     }
 
     private static int endingPoint(int startingPoint, Matcher matcher) {
         return startingPoint + matcher.end() - matcher.start();
     }
 
-    private static String toAnchor(String wikiWord) {
-        return "<a href=\"" + underscorify(wikiWord) + ".html\">" + wikiWord.replaceAll("\n", SPACE) + "</a>";
+    private static String toAnchor(String text, String linkWord) {
+        return "<a href=\"" + underscorify(linkWord) + ".html\">" + text.replaceAll("\n", SPACE) + "</a>";
     }
 
     private static String underscorify(String wikiWord) {
