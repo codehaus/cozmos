@@ -73,7 +73,7 @@ public class WikiWordsConvertor {
     }
 
     private static String toAnchor(String text, String linkWord) {
-        return "<a href=\"" + underscorify(linkWord) + ".html\">" + text.replaceAll("\n", SPACE) + "</a>";
+        return "<a href=\"/" + underscorify(linkWord) + ".html\">" + text.replaceAll("\n", SPACE) + "</a>";
     }
 
     private static String underscorify(String wikiWord) {

@@ -32,7 +32,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     public void testShouldNotConvertHTMLAnchors()  {
-        WikiWordsConvertor convertor = convertor("<a href=\"not_a_wiki_link.html\">not a wiki link</a>");
+        WikiWordsConvertor convertor = convertor("<a href=\"/not_a_wiki_link.html\">not a wiki link</a>");
         assertEquals(anchor("not_a_wiki_link", "not a wiki link"), convertor.convert());
     }
 
@@ -116,24 +116,24 @@ public class WikiWordsConvertorTestCase extends TestCase {
 
     public void testMultipleWikiLinks() {
         WikiWordsConvertor convertor = convertor("[one] two [three] four [five]");
-        assertEquals("<a href=\"one.html\">one</a> two <a href=\"three.html\">three</a> four <a href=\"five.html\">five</a>", convertor.convert());
+        assertEquals("<a href=\"/one.html\">one</a> two <a href=\"/three.html\">three</a> four <a href=\"/five.html\">five</a>", convertor.convert());
     }
 
     public void testMultipleWikiLinksEachWithLongerAlias() {
         WikiWordsConvertor convertor = convertor("[1|one] two [3|three] four [5|five]");
-        assertEquals("<a href=\"one.html\">1</a> two <a href=\"three.html\">3</a> four <a href=\"five.html\">5</a>", convertor.convert());
+        assertEquals("<a href=\"/one.html\">1</a> two <a href=\"/three.html\">3</a> four <a href=\"/five.html\">5</a>", convertor.convert());
     }
 
     public void testMultipleWikiLinksEachWithShorterAlias() {
         WikiWordsConvertor convertor = convertor("[one|1] two [three|3] four [five|5]");
-        assertEquals("<a href=\"1.html\">one</a> two <a href=\"3.html\">three</a> four <a href=\"5.html\">five</a>", convertor.convert());
+        assertEquals("<a href=\"/1.html\">one</a> two <a href=\"/3.html\">three</a> four <a href=\"/5.html\">five</a>", convertor.convert());
     }
 
     public void testToubleSomeCase() {
         WikiWordsConvertor convertor = convertor("x.\n" +
                 "Thus [~hello how are you|greeting] becomes [hello how are you|greeting].");
         assertEquals("x.\n" +
-                "Thus [hello how are you|greeting] becomes <a href=\"greeting.html\">hello how are you</a>.", convertor.convert());
+                "Thus [hello how are you|greeting] becomes <a href=\"/greeting.html\">hello how are you</a>.", convertor.convert());
     }
 
     // public void testShouldIgnoreLeftSquareBracketsInsideHTMLPreTags() throws
@@ -150,7 +150,7 @@ public class WikiWordsConvertorTestCase extends TestCase {
     }
 
     private static String anchor(String href, String label) {
-        return "<a href=\"" + href + ".html\">" + label + "</a>";
+        return "<a href=\"/" + href + ".html\">" + label + "</a>";
     }
 
     private static WikiWordsConvertor convertor(String wikiText) {
