@@ -1,0 +1,2 @@
+content page-editor jar:chrome/page-editor.jar!/content/
+overlay chrome://browser/content/browser.xul chrome://page-editor/content/overlay.xul
