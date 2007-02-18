@@ -1,12 +1,6 @@
 <project>
     <target name="build">
         <mkdir dir="target"/>
-        <zip destfile="target/page-editor.jar" basedir="page-editor"/>
-        <zip destfile="target/page-editor-0.9.xpi">
-            <fileset dir="installer"/>
-            <zipfileset dir="target" prefix="chrome">
-                <include name="page-editor.jar"/>
-            </zipfileset>
-        </zip>
+        <zip destfile="target/page-editor-0.9.xpi" basedir="src"/>
     </target>
 </project>
