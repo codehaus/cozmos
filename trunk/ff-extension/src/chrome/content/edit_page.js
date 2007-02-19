@@ -1,6 +1,5 @@
 /* oncommand event */
-function edit_page()
-  {
+function edit_page() {
 
     var src = getWebNavigation().currentURI.spec;
 
@@ -8,12 +7,15 @@ function edit_page()
 
     var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 
-    file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");      
+    file.initWithPath("/Applications/Macromedia Dreamweaver 8/Dreamweaver 8/Contents/MacOS/Dreamweaver");
+    var args = new Array(src);
+    if (!file.exists()) {
+        file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");
+        args = new Array("-editor", src);
+    }
 
     var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
     process.init(file);
-
-    var args = new Array("-editor", src);
 
     process.run(false, args, args.length);
 
