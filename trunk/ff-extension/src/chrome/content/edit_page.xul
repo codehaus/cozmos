@@ -18,7 +18,7 @@
 
   <menupopup id="menu_FilePopup">
     <menuitem id="page-editor-menuitem" label="Edit Page" insertafter="menu_close"
-              accesskey="E" command="quickrestart-command"
+              accesskey="E" command="edit-page-command"
             key="edit-page-key" />
     <menuseparator/>
   </menupopup>
