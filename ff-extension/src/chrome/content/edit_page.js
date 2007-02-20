@@ -11,14 +11,25 @@ function edit_page() {
         }
     }
 
-    // window.alert("hello! 2 " + src);
+    // window.alert("url= " + url);
 
     var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 
+    // Mac OS X
     file.initWithPath("/Applications/Macromedia Dreamweaver 8/Dreamweaver 8/Contents/MacOS/Dreamweaver");
     var args = new Array(url);
     if (!file.exists()) {
         file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");
+        args = new Array("-editor", url);
+    }
+
+    // Windows
+    if (!file.exists()) {
+        file.initWithPath("C:/Program Files/Macromedia/Dreamweaver 8/dreamweaver.exe");
+        args = new Array(url);
+    }
+    if (!file.exists()) {
+        file.initWithPath("C:/Program Files/mozilla.org/SeaMonkey/seamonkey.exe");
         args = new Array("-editor", url);
     }
 
