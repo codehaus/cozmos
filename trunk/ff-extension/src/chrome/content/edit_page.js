@@ -3,7 +3,8 @@ function edit_page() {
 
     var url = getWebNavigation().currentURI.spec;
 
-    if (url.substr(0,4) == "http") {
+    // clue to Cozmos server to send page raw.
+    if (url.substr(0, 4) == "http") {
         if (url.indexOf("?") > 0) {
             url = url + "&editMode=true";
         } else {
@@ -11,31 +12,65 @@ function edit_page() {
         }
     }
 
-    // window.alert("url= " + url);
+    //window.alert("url= " + url);
 
     var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+    var args;
+    var found = false;
 
     // Mac OS X
-    file.initWithPath("/Applications/Macromedia Dreamweaver 8/Dreamweaver 8/Contents/MacOS/Dreamweaver");
-    var args = new Array(url);
-    if (!file.exists()) {
-        file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");
-        args = new Array("-editor", url);
+
+    try {
+        file.initWithPath("/Applications/Macromedia Dreamweaver 8/Dreamweaver 8/Contents/MacOS/Dreamweaver");
+        if (file.exists()) {
+            found = true;
+            args = new Array(url);
+        }
+    } catch (ex) {
+    }
+
+
+    if (!found) {
+        try {
+            file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");
+            if (file.exists()) {
+                found = true;
+                args = new Array("-editor", url);
+            }
+        } catch (ex) {
+        }
     }
 
     // Windows
-    if (!file.exists()) {
-        file.initWithPath("C:/Program Files/Macromedia/Dreamweaver 8/dreamweaver.exe");
-        args = new Array(url);
+    if (!found) {
+        try {
+            file.initWithPath("C:\\Program Files\\Macromedia\\Dreamweaver 8\\dreamweaver.exe");
+            if (file.exists()) {
+                found = true;
+                args = new Array(url);
+            }
+        } catch (ex) {
+        }
     }
-    if (!file.exists()) {
-        file.initWithPath("C:/Program Files/mozilla.org/SeaMonkey/seamonkey.exe");
-        args = new Array("-editor", url);
+
+    if (!found) {
+        try {
+            file.initWithPath("C:\\Program Files\\mozilla.org\\SeaMonkey\\seamonkey.exe");
+            if (file.exists()) {
+                found = true;
+                args = new Array("-editor", url);
+            }
+        } catch (ex) {
+        }
     }
 
-    var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
-    process.init(file);
 
-    process.run(false, args, args.length);
+    if (found) {
+        var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
+        process.init(file);
+        process.run(false, args, args.length);
+    } else {
+        window.alert("No editor found");
+    }
 
-  }
+}
