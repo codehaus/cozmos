@@ -32,11 +32,13 @@ public class ModDavSvnProxyServlet extends HttpServlet {
 
     private String targetURL;
     private String newPageTemplate;
+    private String defaultIndexFile;
 
     public void init(ServletConfig servletConfig) throws ServletException {
 
         targetURL = servletConfig.getInitParameter("mod_dav_svn_url");
         newPageTemplate = servletConfig.getInitParameter("new_page_template_file");
+        defaultIndexFile = servletConfig.getInitParameter("default_index_file");
         super.init(servletConfig);
 
 
@@ -45,6 +47,11 @@ public class ModDavSvnProxyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String path = req.getServletPath();
+
+        if (path.endsWith("/")) {
+            resp.sendRedirect(path + defaultIndexFile);
+            return;
+        }
         URL url = new URL(targetURL + path);
 
         HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
