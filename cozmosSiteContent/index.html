@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head profile="http://www.w3.org/2000/08/w3c-synd/#">
+  <style type="text/css">
+.codehauslogo {
+	margin-top:15px;
+	width:180px;
+	text-align:center;
+}
+.codeContent {
+	border: 1px solid #4D87CE;
+	font-size: 1.2em;
+	padding:10px;
+}
+.code-comment {
+  color: #777;
+  font-style: italic;
+}
+
+.code-quote {
+  color: #070;
+}
+
+.code-keyword {
+  color: #700;
+}
+body {
+	margin:0;
+	font-family:"Trebuchet MS", Arial, Verdana;
+	font-size:0.84em;
+	color:#555555;
+	background-color:#FFFFFF;
+	text-align:left;
+}
+
+input {
+	background-color:#FFFFFF;
+	padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#ffffff;
+	border:1px solid #728c40;
+	background-color:#94ae62;
+	margin-bottom:2px;
+}
+input[type=submit] {
+	background-color:#FFFFFF;
+	padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#666666;
+	border:1px solid #728c40;
+	margin-bottom:2px;
+}
+
+a {
+	color:#4D87CE;
+	font-weight:bold;
+	text-decoration:none;
+}
+a:hover {
+	color:#2a65ad;
+}
+
+ol,ul {
+
+}
+
+li {
+	list-style-image:url(../images/backgrounds/li.gif);
+	line-height:20px;
+	text-align:left;
+}
+
+#menu {
+	width:100%;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:#94AE62;
+	margin-bottom:50px;
+	color:#FFFFFF;
+	text-align:center;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-variant:small-caps;
+	background-image:url(../images/backgrounds/menu.jpg);
+}
+#menu a {
+	color:#FFFFFF;
+	text-decoration:none;
+	padding:10px;
+	padding-top:20px;
+	padding-bottom:20px;
+	
+}
+#menu a:hover {
+	border-bottom:1px solid #ffffff;
+	border-left:1px solid #728d40;
+	border-right:1px solid #e9ffb7;
+	padding-left:9px;
+	padding-right:9px;
+	color:#000000;
+	background-color:#FFFFFF;
+	background-image:url(../images/backgrounds/a_hover.jpg);
+}
+/*google ads*/
+#uads {
+	position:absolute;
+	right:40px;
+	top: 100px;
+}
+#header {
+	margin:0 auto 0 auto;
+	margin-left:30px;
+	margin-bottom:40px;
+}
+#header h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:30px;
+	text-transform:uppercase;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+	padding-top:5px;
+	color:#736451;
+	margin-bottom:10px;
+	text-align:left;
+}
+#header h2 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:15px;
+	text-transform:uppercase;
+	text-align:right;
+	font-weight:normal;	
+	margin:0;
+	padding:0;
+	margin-right:40px;	
+	color:#000000;
+	border-bottom:1px solid #eeeeee;
+}
+
+#content {
+	margin:0 auto 0 auto;
+	margin-left: 30px;	
+	text-align:left;
+}
+
+.introduction {
+	margin-left:0px;
+	margin-right:235px;	
+	font-family:Helvetica, Arial, sans-serif;
+	line-height:20px;
+	font-size:12px;
+	color:#99B198;
+	text-indent:25px;
+	background-image:url(../images/backgrounds/desc.jpg);
+	background-position:bottom left;
+	padding-left:0;
+	padding-right:200px;
+	padding-bottom:35px;
+	padding-top:0;
+	background-repeat:no-repeat;
+	
+}
+.logo {
+	float:right;
+	margin-right:30px;
+}
+.clearer {
+	clear:both;
+}
+
+#sidebar {
+	width:160px;
+	float:right;
+	font-size:95%;
+	color:#6C534A;
+	text-align:left;
+	margin-right:20px;
+	margin-bottom: 100px;
+}
+#sidebar h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:20px;
+	text-transform:uppercase;
+	font-weight:normal;
+	border-bottom:1px solid #eeeeee;
+	color:#728c40;
+	text-align:right;
+}
+.submenu {
+}
+.submenu a {
+	display:block;
+	width:100%;
+	background-image:url(../images/backgrounds/submenua.gif);
+	background-position:right;
+	background-repeat:no-repeat;
+	padding:5px;
+	padding-right:0;
+}
+.submenu a:hover {
+	background-color:#eeeeee;
+	background-image:url(../images/backgrounds/submenua_hover.jpg);
+	background-repeat:repeat-y;
+}
+#mainbar {
+	margin-right:235px;
+	padding-right:35px;
+	background-image:url(../images/backgrounds/mainbar.jpg);
+	background-position:top right;
+	background-repeat:no-repeat;
+	margin-bottom:100px;
+}
+
+#mainbar h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:25px;
+	text-transform:uppercase;
+	font-weight:normal;
+	border-bottom:1px solid #eeeeee;
+	color:#728c40;
+}
+
+#mainbar p {
+	padding:15px;
+	line-height:20px;
+}
+
+#mainbar .articleimg {
+	float:right;
+	padding:5px;
+	border:1px solid #eeeeee;
+	margin-left:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#footer {
+	width:100%;
+	background-color:#b6cf84;
+	border-top:1px solid #d8efa6;
+	border-bottom:5px solid #94ae62;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-top:50px;
+	font-size:0.8em;
+	position:fixed;
+	bottom:0px;
+	color:white;
+	text-align:center;
+}
+#footer a {
+	color:#006600;
+}
+#footer a:hover {
+	color:#009900;
+}  
+h4 {
+	border-bottom: 2px solid #728C40;	
+}
+/* CSS done */
+  </style><!--[if IE]>
+
+  <link rel="stylesheet" type="text/css" href="/css/ie.css" />
+
+<![endif]-->
+  <title>Cozmos Home Page</title>
+</head>
+<body>
+<a name="top" id="top"></a>
+<div id="header">
+<h1><a href="/"><img src="Cozmos.jpg" alt="Cozmos" class="spaceLogo"
+ style="border: 0px solid ; width: 439px; height: 81px;"></a></h1>
+<h2>Sitemesh + WebDAV: making a better content
+management system thaN a wiki<!-- 			<p class="introduction">				
+
+			</p> -->
+&nbsp;<!-- <div id="upage_title">Quick Start</div> -->
+</h2>
+</div>
+<div id="uads">
+<script type="text/javascript"><!--
+		google_ad_client = "pub-3023399591478482";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		google_ad_format = "468x60_as";
+		google_ad_type = "text_image";
+		google_ad_channel = "7321085054"; //unity-top
+		google_color_border = "FFFFFF";
+		google_color_bg = "FFFFFF";
+		google_color_link = "557755";
+		google_color_url = "557755";
+		google_color_text = "333333";
+		//--></script>
+<script type="text/javascript" src="show_ads.js">
+		</script> </div>
+<div id="content">
+<div id="mainbar">
+<div id="umain" class="content">
+<div id="uads"> </div>
+<div class="section_1">
+<h1>What is it ???</h1>
+<p>It is a content management system inspired by Ward Cunningham's <a
+ href="http://en.wikipedia.org/wiki/WikiWikiWeb">Wiki idea</a>. Whereas
+most wiki implementations (and there are hundreds) use a textarea in a
+web page for editing, with a command language for formatting, Cozmos
+uses a full installed 'Thick' application for editing and pushes back
+the pages using an extended web technology called <a
+ href="http://en.wikipedia.org/wiki/WebDAV">WebDAV</a>.&nbsp; Like
+Wikis, Cozmos separates content from presentation/style.&nbsp; Unlike
+Wikis the actual language of the content is&nbsp; HTML which is the
+language of the web itself.<br>
+</p>
+<p>Don't be scared though, some pretty standard tools are used for
+editing:</p>
+<p>If you're a windows user, Internet Explorer and Microsoft Word are
+tools you might have installed already that work.<br>
+If you're a Windows, Mac or Linux user, the Mozilla Foundations free
+tool <a href="http://www.mozilla.org/projects/seamonkey/">SeaMonkey</a>
+will do.<br>
+In time, we hope FireFox too gets a new menu item - 'Edit' - to allow
+for the seamless transition from browsing a page, to editing it.<br>
+</p>
+<p>Look at this flow from browse to edit to browse again. Click on each
+screen shot see them full sized:</p>
+<p><a href="SeaMonkeyScreenSnapz001.jpg"><img
+ style="width: 220px; height: 178px;" alt="before"
+ src="SeaMonkeyScreenSnapz001.jpg"></a>&nbsp; <a
+ href="SeaMonkeyScreenSnapz002.jpg"><img
+ style="width: 220px; height: 178px;" alt="during"
+ src="SeaMonkeyScreenSnapz002.jpg"></a>&nbsp; <a
+ href="SeaMonkeyScreenSnapz003.jpg"><img
+ style="width: 220px; height: 178px;" alt="after"
+ src="SeaMonkeyScreenSnapz003.jpg"></a><br>
+</p>
+<br>
+<h1>Why?</h1>
+As with most open source, an itch is being scratched.&nbsp; Its not
+uncommon to hear that people are sick of editing in textareas in web
+pages, using obscure languages for *bold* /italics/ and _underline_ (it
+is not even if those three are standardized over all Wiki
+implementations).&nbsp; Even the push in the Web2.0 era to Rich editing
+components in web pages does not placate all. Thus this real editor
+solution is being developed after many years of discussion inside <a
+ href="http://www.thoughtworks.com/">ThoughtWorks</a>. Cozmos is going
+to spawn multiple implementations of the same idea. The PHP community
+(with PhpMesh) are poised to deliver a quick solution, and the
+Rby/Rails communit will do the same. In the end though perhaps this
+"Diki" (DAV Wiki - geddit?) idea may stick. Though there's some
+suggestion that it should be coined Daviki rather tha Diki.<br>
+<h1>Quick Start</h1>
+<div class="section_2">
+<h2>Install the Cozmos web app into Apache's Tomcat server<br>
+</h2>
+<span style="text-decoration: underline;">Alpha verions</span> of
+Cozmos available here - http://cozmos.codehaus.org/wars/<br>
+<br>
+(Mortbay's Jetty will work too, but you must&nbsp; have JETTY_HOME set)<br>
+<h2>For SeaMonkey editing, download and patch it <br>
+</h2>
+1) Go get a recent version of <a
+ href="http://www.mozilla.org/projects/seamonkey/">SeaMonkey</a><br>
+<br>
+Unfortunately, you have to make a modification to SeaMonkey after
+installing it.<br>
+<br>
+2) Install it the normal way.<br>
+<br>
+3) Go to to a directory called 'chrome' that contains a file called
+'comm.jar' in a command shell<br>
+<br>
+4) Do jar -xf comm.jar content/editor/editorApplicationOverlay.js<br>
+<br>
+5) Edit that file in Notepad, Textpad, Vi, Emacs etc..<br>
+<br>
+6) Change ....<br>
+<pre>&nbsp; function editPage(url, launchWindow, delay)<br>&nbsp; {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");</pre>
+&nbsp; to ....<br>
+<br>
+<pre>&nbsp; function editPage(url, launchWindow, delay)<br>  {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");<br>&nbsp; if (url.substr(0,4) == "http")<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; if (url.indexOf("?") &gt; 0)<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "&amp;editMode=true";&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "?editMode=true";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp; }</pre>
+<br>
+7) Do jar -uf comm.jar content/editor/editorApplicationOverlay.js<br>
+<br>
+Now your SeaMonkey has been modified. It allows the server side Cozmos
+to recognise the differences betweeen a page request from the browser
+and one from the composer (editor) sides of SeaMonkey.&nbsp; We hope to
+see the SeaMonkey team build in such functionality in future.<br>
+<br>
+It is important to note that there are no permissions presently for
+editing of pages.&nbsp; This will change in future versions of Cozmos.<br>
+<br>
+We will supply a script to modify SeaMonkey for you in future versions.<br>
+</div>
+<div class="section_2">
+<h2>Edit a page on the site with MS Word<br>
+</h2>
+While browsing the Cozmos application site
+(http://localhost:8080/cozmos?) with Internet Explorer,&nbsp; chose
+"Edit page with Microsoft Word" from the File menu.&nbsp; This used to
+be mapped to Ctrl-E (pity its not).&nbsp; When finished choose the
+regular Save Icon.<br>
+<h2>Edit a page on the site with SeaMonkey<br>
+</h2>
+While browsing the Cozmos application site
+(http://localhost:8080/cozmos?) with SeaMonkey, hit Ctrl-E (Apple-E for
+Mac users) and make changes to the page.&nbsp; Hit the "Publish"&nbsp;
+icon in the toolbar to push the changes back to the server.<br>
+</div>
+<div class="section_2">
+<h1>What next ?<br>
+</h1>
+Permissions for pages / secure login for changes<br>
+Linking to Subversion for automatic storage of page history <br>
+Begging of numberous Mozilla committers/leads to make changes to some
+components they own (Firefox, SeaMonkey, Composer)<br>
+</div>
+<div class="section_2">
+<h1>Project INFO<br>
+</h1>
+<p>People, repos, lists, sites ... all detailed here:<br>
+<a href="http://xircles.codehaus.org/projects/cozmos">http://xircles.codehaus.org/projects/cozmos</a><br>
+</p>
+&nbsp;&nbsp;&nbsp; Cozmos depends significantly on two pre-existing
+open source projects. <br>
+&nbsp;&nbsp;&nbsp; <a href="http://www.opensymphony.com/sitemesh/">SiteMesh</a>
+is the best open source component you never heard of, <br>
+&nbsp;&nbsp;&nbsp; and <a
+ href="http://sourceforge.net/projects/webdav-servlet">webdav-servlet</a>
+is a very flexible value add for Java's web capability.<br>
+<br>
+This work is licensed under a some minimal BSD derivative<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
