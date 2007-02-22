@@ -24,7 +24,10 @@
             <param-name>mod_dav_svn_url</param-name>
             <param-value>https://svn.codehaus.org/cozmos/cozmosSiteContent/</param-value>
         </init-param>
-
+        <init-param>
+            <param-name>default_index_file</param-name>
+            <param-value>index.html</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
