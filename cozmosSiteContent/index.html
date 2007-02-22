@@ -77,56 +77,7 @@ Rby/Rails communit will do the same. In the end though perhaps this
 "Diki" (DAV Wiki - geddit?) idea may stick. Though there's some
 suggestion that it should be coined Daviki rather tha Diki.<br>
 <h1>Quick Start</h1>
-<h2>Install the Cozmos web app into Apache's Tomcat server</h2>
-<span style="text-decoration: underline;">Alpha verions</span> of
-Cozmos available here - http://cozmos.codehaus.org/wars/<br>
-<br>
-(Mortbay's Jetty will work too, but you must&nbsp; have JETTY_HOME set)<br>
-<h2>For SeaMonkey editing, download and patch it <br>
-</h2>
-1) Go get a recent version of <a
- href="http://www.mozilla.org/projects/seamonkey/">SeaMonkey</a><br>
-<br>
-Unfortunately, you have to make a modification to SeaMonkey after
-installing it.<br>
-<br>
-2) Install it the normal way.<br>
-<br>
-3) Go to to a directory called 'chrome' that contains a file called
-'comm.jar' in a command shell<br>
-<br>
-4) Do jar -xf comm.jar content/editor/editorApplicationOverlay.js<br>
-<br>
-5) Edit that file in Notepad, Textpad, Vi, Emacs etc..<br>
-<br>
-6) Change ....<br>
-<pre>&nbsp; function editPage(url, launchWindow, delay)<br>&nbsp; {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");</pre>
-&nbsp; to ....<br>
-<br>
-<pre>&nbsp; function editPage(url, launchWindow, delay)<br>  {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");<br>&nbsp; if (url.substr(0,4) == "http")<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; if (url.indexOf("?") &gt; 0)<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "&amp;editMode=true";&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "?editMode=true";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp; }</pre>
-<br>
-7) Do jar -uf comm.jar content/editor/editorApplicationOverlay.js<br>
-<br>
-Now your SeaMonkey has been modified. It allows the server side Cozmos
-to recognise the differences betweeen a page request from the browser
-and one from the composer (editor) sides of SeaMonkey.&nbsp; We hope to
-see the SeaMonkey team build in such functionality in future.<br>
-<br>
-It is important to note that there are no permissions presently for
-editing of pages.&nbsp; This will change in future versions of Cozmos.<br>
-<br>
-We will supply a script to modify SeaMonkey for you in future versions.<br>
-<h2>Edit a page on the site with MS Word</h2>
-While browsing the Cozmos application site
-(http://localhost:8080/cozmos?) with Internet Explorer,&nbsp; chose
-"Edit page with Microsoft Word" from the File menu.&nbsp; This used to
-be mapped to Ctrl-E (pity its not).&nbsp; When finished choose the
-regular Save Icon.<br>
-<h2>Edit a page on the site with SeaMonkey</h2>
-While browsing the Cozmos application site
-(http://localhost:8080/cozmos?) with SeaMonkey, hit Ctrl-E (Apple-E for
-Mac users) and make changes to the page.&nbsp; Hit the "Publish"&nbsp;
-icon in the toolbar to push the changes back to the server.<br>
+See our [quick start] page.
 <h1>What next ?</h1>
 Permissions for pages / secure login for changes<br>
 Linking to Subversion for automatic storage of page history <br>
