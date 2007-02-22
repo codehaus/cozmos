@@ -22,7 +22,7 @@
         </init-param>
         <init-param>
             <param-name>mod_dav_svn_url</param-name>
-            <param-value>https://svn.codehaus.org/cozmos/cozmosSiteContent</param-value>
+            <param-value>https://svn.codehaus.org/cozmos/cozmosSiteContent/</param-value>
         </init-param>
 
     </servlet>
