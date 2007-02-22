@@ -64,6 +64,18 @@ function edit_page() {
         }
     }
 
+    // Linux
+    if (!found) {
+         try {
+             file.initWithPath("/usr/local/seamonkey/seamonkey");
+             if (file.exists()) {
+                 found = true;
+                 args = new Array("-editor", url);
+             }
+         } catch (ex) {
+         }
+     }
+
 
     if (found) {
         var process = Components.classes["@mozilla.org/process/util;1"].createInstance(Components.interfaces.nsIProcess);
