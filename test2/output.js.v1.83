@@ -1,35 +1,31 @@
-.abs(len); i++) ps+=ch;
-        return len>0?str+ps:ps+str;
-      }
-    var processFlags = function(flags,width,rs,arg)
-      { var pn = function(flags,arg,rs)
-          { if(arg>=0)
-              { if(flags.indexOf(' ')>=0) rs = ' ' + rs;
-                else if(flags.indexOf('+')>=0) rs = '+' + rs;
-              }
-            else
-                rs = '-' + rs;
-            return rs;
+    converters['g'] = function(flags,width,precision,arg)
+      { iPrecision = parseInt(precision);
+        absArg = Math.abs(arg);
+        rse = absArg.toExponential();
+        rsf = absArg.toFixed(6);
+        if(!isNaN(iPrecision))
+          { rsep = absArg.toExponential(iPrecision);
+            rse = rsep.length < rse.length ? rsep : rse;
+            rsfp = absArg.toFixed(iPrecision);
+            rsf = rsfp.length < rsf.length ? rsfp : rsf;
           }
-        var iWidth = parseInt(width,10);
-        if(width.charAt(0) == '0')
-          { var ec=0;
-            if(flags.indexOf(' ')>=0 || flags.indexOf('+')>=0) ec++;
-            if(rs.length<(iWidth-ec)) rs = pad(rs,'0',rs.length-(iWidth-ec));
-            return pn(flags,arg,rs);
-          }
-        rs = pn(flags,arg,rs);
-        if(rs.length<iWidth)
-          { if(flags.indexOf('-')<0) rs = pad(rs,' ',rs.length-iWidth);
-            else rs = pad(rs,' ',iWidth - rs.length);
-          }    
-        return rs;
+        if(rse.indexOf('.')<0 && flags.indexOf('#')>=0) rse = rse.replace(/^(.*)(e.*)$/,'$1.$2');
+        if(rsf.indexOf('.')<0 && flags.indexOf('#')>=0) rsf = rsf + '.';
+        rs = rse.length<rsf.length ? rse : rsf;
+        return processFlags(flags,width,rs,arg);        
+      }  
+    converters['o'] = function(flags,width,precision,arg)
+      { var iPrecision=parseInt(precision);
+        var rs = Math.round(Math.abs(arg)).toString(8);
+        if(rs.length<iPrecision) rs=pad(rs,' ',iPrecision - rs.length);
+        if(flags.indexOf('#')>=0) rs='0'+rs;
+        return processFlags(flags,width,rs,arg); 
       }
-    var converters = new Array();
-    converters['c'] = function(flags,width,precision,arg)
-      { if(typeof(arg) == 'number') return String.fromCharCode(arg);
-        if(typeof(arg) == 'string') return arg.charAt(0);
-        return '';
+    converters['X'] = function(flags,width,precision,arg)
+      { return (converters['x'](flags,width,precision,arg)).toUpperCase();
       }
-    converters['d'] = function(flags,width,precision,arg)
-      { return converter
+    converters['x'] = function(flags,width,precision,arg)
+      { var iPrecision=parseInt(precision);
+        arg = Math.abs(arg);
+        var rs = Math.round(arg).toString(16);
+        if(rs.length<iPrecision) rs=pad(rs,' ',iPr
