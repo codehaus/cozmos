@@ -1,89 +1,35 @@
-',
-		map_x_photos_here: '%s photos taken here',
-		map_1_photo_here: '1 photo taken here',
-
-
-		global_sure: 'Are you sure?',
-		global_sorry: 'Sorry, photo could not be deleted.',
-
-
-
-
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		xxx: '',
-		
-		
-		
-		
-		see_now_i_dont_need_to_worry_about_commas: 1
-	}
-	
-}
-  
-F.output.sentencise = function(A, tag) {
-	var b_tag = (tag) ? tag : '';
-	var e_tag = (tag) ? tag.replace('<', '<\/') : '';
-	var str = '';
-	
-	for (var i=0; i<A.length;i++) {
-		if (i>0) {
-			if (i == A.length-1) {
-				if (A.length > 2) str+= ','; 
-				str+= ' '+F.output.get('and')+' ';
-			} else {
-				str+= ', ';
-			}
-		
-		}
-		
-		str+= b_tag + A[i] + e_tag;
-	}
-	
-	return str;
-}
-
-// NO USIE THIS ONIE
-F.output.sentencize = function(A) {
-	var str = '<b>';
-	for (var i=0; i<A.length;i++) {
-		str+= A[i];
-		if (i == A.length-1) break;
-		if (i == A.length-2) {
-			str+= '</b> and <b>';
-			continue;
-		}
-		str+= '</b>, <b>';
-	}
-	str+= '</b>';
-	return str;
-}
-
-F.output.dateize = function(y,m,d) {
-	
-	var str = F.output.date_strs.monthsA[m] + ' ' + d + ', ' + y;
-	return str;
-	
-}
-
-// F.output.get is used to retrieve all strings from F.output.format_strs
-
-F.output.get = function(format_id) {
-	
-	// first we have to create a new array because you can't shift() the arguments array :(
-	var new_args = [];
-	for (var i=0;
+.abs(len); i++) ps+=ch;
+        return len>0?str+ps:ps+str;
+      }
+    var processFlags = function(flags,width,rs,arg)
+      { var pn = function(flags,arg,rs)
+          { if(arg>=0)
+              { if(flags.indexOf(' ')>=0) rs = ' ' + rs;
+                else if(flags.indexOf('+')>=0) rs = '+' + rs;
+              }
+            else
+                rs = '-' + rs;
+            return rs;
+          }
+        var iWidth = parseInt(width,10);
+        if(width.charAt(0) == '0')
+          { var ec=0;
+            if(flags.indexOf(' ')>=0 || flags.indexOf('+')>=0) ec++;
+            if(rs.length<(iWidth-ec)) rs = pad(rs,'0',rs.length-(iWidth-ec));
+            return pn(flags,arg,rs);
+          }
+        rs = pn(flags,arg,rs);
+        if(rs.length<iWidth)
+          { if(flags.indexOf('-')<0) rs = pad(rs,' ',rs.length-iWidth);
+            else rs = pad(rs,' ',iWidth - rs.length);
+          }    
+        return rs;
+      }
+    var converters = new Array();
+    converters['c'] = function(flags,width,precision,arg)
+      { if(typeof(arg) == 'number') return String.fromCharCode(arg);
+        if(typeof(arg) == 'string') return arg.charAt(0);
+        return '';
+      }
+    converters['d'] = function(flags,width,precision,arg)
+      { return converter
