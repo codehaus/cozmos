@@ -128,7 +128,9 @@ h2 {
 </head>
 <body>
 <div id="header">
-    <h1>Cozmos</h1>
+	<h1 style="text-align: right;"><a href="/"><img src="Cozmos.jpg"
+	 alt="Cozmos" class="spaceLogo"
+	 style="border: 0px solid ; width: 281px; height: 141px;"></a></h1>
 </div>
 <ul id="nav">
     <!-- you may want some Javascript to change "current" depending on URL -->
