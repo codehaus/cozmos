@@ -1,23 +1,32 @@
-n %s photos.',
+ %s group pool.',
+		remove_from_group_email_subject_head: 'subject',
+		remove_from_group_email_body_head: 'body',
+		yes_send_email: 'yes, send email',
 		
-		batch_canceling: 'Cancelling batch changes...',
-		batch_canceled_none_affected: 'The batch was cancelled and no photos were affected.',
-		batch_canceled_some_affected: 'The batch was cancelled, but not before %s of %s photos were affected.',
+		map_date_invalid: 'You must specify a real date, not in the future, after 1/1/1970, in the format m/d/y (like 12/26/2003)',
 		
-		add_to_set_added: '<b>1</b> photo has been added to your %s set',
-		add_to_set_added_plural: '<b>%s</b> photos have been added to your %s set',						
-		add_to_set_already_in: '(1 photo was already in the set)',
-		add_to_set_already_in_plural: '(%s photos were already in the set)',					
-		add_to_set_all_in: 'That photo is already in your %s set!',
-		add_to_set_all_in_plural: 'Those photos are all already in your %s set!',
-		open_set_now: 'Would you like to <b>open up that set now</b>?',
+		taken_date_invalid: 'You must specify a real date, not in the future, after 1825, in the format m/d/y (like 12/26/2003)',
+		posted_date_invalid: 'You must specify a real date, not in the future, after the date you joined Flickr (%s), in the format m/d/y (like 12/26/2003)',
 		
-		add_to_group_added: '<b>1</b> photo has been added to the %s pool',
-		add_to_group_added_plural: '<b>%s</b> photos have been added to the %s pool',						
-		add_to_group_not_added: '(1 photo was either already in the pool, or is already in too many groups)',
-		add_to_group_not_added_plural: '(%s photos were either already in the %s pool, or are already in too many groups)',					
-		add_to_group_all_not_added: 'That photo is either already in the %s pool, or is already in too many groups',
-		add_to_group_all_not_added_plural: 'Those photos are either already in the %s pool, or are already in too many groups',
+		together_saving_tags: 'Saving tags on %s of 1 photo...',
+		together_saving_tags_plural: 'Saving tags on %s of %s photos...',
 		
-		geoperms_not_on_map: '1 photo does not appear on the map.',
-		geop
+		together_saving_meta: 'Saving title and description on %s of 1 photo...',
+		together_saving_meta_plural: 'Saving title and description on %s of %s photos...',
+		
+		together_saved_tags: 'Saved tags on 1 photo.',
+		together_saved_tags_plural: 'Saved tags on %s photos.',
+		
+		together_saved_meta: 'Saved title and description on 1 photo.',
+		together_saved_meta_plural: 'Saved title and description on %s photos.',
+		
+		together_saved_loading: 'Changes Saved! Loading next page...',
+		together_saved: 'Changes Saved!',
+		
+		together_save_cancelled: 'The save was cancelled.',
+		
+		together_tags_label: 'Tags',
+		together_title_label: 'Title',
+		together_description_label: 'Description',
+		
+		together_need_photos: 'You have to have at least one ph
