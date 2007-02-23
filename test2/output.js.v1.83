@@ -1,29 +1,25 @@
-sh">here</a>.',
-		
-		
-		
-		setprint_not_selected_photos: 'You have not selected any photos to print!',
-		setprint_choose_print_size: 'You must choose a print size!',
-		setprint_adding_prints_to_cart: 'adding prints to your cart...',
-		setprint_added_photos: 'We\'ve added <b>%s</b> of the photos you selected to your cart.',
-		setprint_continue_browsing: 'CONTINUE BROWSING',
-		setprint_proceed: 'PROCEED TO CART',
-		setprint_are_you_ready: 'Or are you ready to place your order?',
-		setprint_get_to_cart: 'You can get to your cart anytime by clicking on the cart icon at the top of each page.',
-		setprint_were_errors: 'There were errors adding the photos to your cart:',
-		setprint_no_photos_large_enough: '<b>No photos in this set are really large enough for this size print.</b>',
-		setprint_all_photos_large_enough: '<b>All photos</b> in this set are large enough for this print size.',
-		setprint_x_of_y_large_enough: '<b>%s of %s photos</b> in this set are large enough for this print size.',
-
-
-
-		setorder_set_has_no_photos: 'Hrmm. This set does not appear to have any photos.',
-		setorder_reverting: 'reverting...',
-		setorder_reordering: 're-ordering...',
-		setorder_saving: 'saving...',
-		setorder_order_you_want: 'Is this the ordering you want?',
-		setorder_set_been_reordered: 'Your set has been re-ordered.',
-
-
-
-		pinwin_uploaded_details: 'Uploaded on <a class="Plain" href="/photos/%s/archives/date-posted/%s/%s/%s/" target="_new">%s
+lize you order.',
+		photo_what_set: 'set',
+		photo_what_group: 'group',
+		photo_what_blog: 'blog',
+		photo_what_print: 'print',
+		photo_loading_what: '<br>loading %ss...<br><br>',
+		photo_create_new_set: 'CREATE NEW SET',
+		photo_title: 'Title:',
+		photo_description: 'Description:',
+		photo_choose_a_set: 'Choose a set below',
+		photo_create_new_set: 'create a new set',
+		photo_create_new_set_ups: 'Create a new set:',
+		photo_choose_a_size: 'Choose a print size & quantity:',
+		photo_choose_a_what: 'Choose a %s below:',
+		photo_must_enter_set_title: 'You must enter a title for the new set. Otherwise, what would it be titled?',
+		photo_private_photo_to_group: 'You are about to add a private photo to a group. This means that members of <b>%s</b> will be able to view, comment on, tag and add notes to this photo. Is this OK with you?',
+		photo_adding_prints_to_cart: 'Adding prints to cart...',
+		photo_removing_photo_from_what: 'Removing photo from %s...',
+		photo_creating_new_what: 'Creating new %s...',
+		photo_adding_photo_to_what: 'Adding photo to %s...',
+		photo_adding_some_errors: 'We\'ve added some prints of <b>%s</b> to your cart, but there were errors adding %s of the prints. The last error was: <b>%s</b><br><br>',
+		photo_added_prints_to_cart: 'We\'ve added these prints of <b>%s</b> to <b><a href="%s">your cart</a></b>:\'',
+		photo_continue_browsing: 'CONTINUE BROWSING',
+		photo_proceed: 'PROCEED TO CART',
+		photo_or_are_y
