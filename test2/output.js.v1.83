@@ -1,61 +1,22 @@
-//
-
-// all string outputs are defined in the object declaration and contained in the format_strs hash:
-
-F.output = {
-	date_strs: {
-		daysA: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 
-		days_abbA: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
-		months_abbA: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-		monthsA: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-	},
-	
-	format_strs: {
-		remain_here: 'remain here',
-		returnn: 'return',
-		continuing: 'continuing...',
-		and: 'and',
-		ok: 'OK',
-		save: 'Save',
-		save_up: 'SAVE',
-		cancel: 'Cancel',
-		close: 'Close',
-		close_up: 'CLOSE',
-		go_ahead: 'yes, go ahead',
-		no: 'No!',
-		yes_up: 'YES',
-		no_up: 'NO',
-		open_set: 'Open set',
-		continuoo: 'Continue',
-		deletee: 'Delete!',
-		thanks: 'Thanks!',
-		no_thanks: 'No thanks',
-		send_it: 'send it',
-		api_err_generic: 'There was an error:',
-		api_err_changes_not_saved: 'Changes were not saved. There was an error:',
-		unknown_err: 'unknown error',
-		status_sending_msg: 'Sending message...',
-		unsaved_msg: 'You have unsaved changes. Press OK to discard them, or cancel to remain on this page.',
-		too_many_tabs_msg: 'You have too many Organizr tabs open to open a new one. Please close some tabs first, or widen your browser window, if you can.',
-		in_the_findr_batch: 'We\'ve put the batch into the Findr for you (below). All you have to do now is drag photos onto the map!',
-		in_the_findr: 'We\'ve put the photo into the Findr for you (below). All you have to do now is drag it onto the map!',
-		in_the_findr_set: 'We\'ve put the set into the Findr for you (below). All you have to do now is drag photos onto the map!',
-		no_photos: 'We can\'t do that until you have some photos in the batch!',
-		limits_checking: 'Checking group posting limits...',
-		photos_not_added_to_group: '<b>Photos were not added to the group pool.</b>',
-		add_to_set_drag_tip: 'add to <b>%s</b>',
-		see_group_page: 'See the <b><a target="_new" href="/groups/%s/">%s</a></b> group page for more information.',
-		pool_limits_disabled: 'Uploads have been disabled for %s.',
-		loading: 'Loading...',
-		loading_interface: 'Loading interface...',
-		building_interface: 'Building interface...',
-		loading_info: 'Loading photo info...',
-		count_photos: '1 photo',
-		prev_page: 'Previous page',
-		next_page: 'Next page',
-		curr_page: 'Page <b>%s</b> of <b>%s</b>',
-		prev: 'Prev',
-		next: 'Next',
-		save_all: 'SAVE ALL',
-		save_done: 'SAVE AND BE DONE',
-		save_and_go: 'SAVE AND GO TO NEXT P
+,
+		some_approx: 'NOTE: 1 of the photos in this batch has an approximate date, which means it can\'t be time shifted. We can time shift the others though, if you wish.',
+		some_approx_plural: 'NOTE: %s of the photos in this batch have approximate dates, which means they can\'t be time shifted. We can time shift the others though, if you wish.',
+		
+		shown_above: '(Shown above are the first %s of the %s photos that will be deleted.)',
+		
+		all_unrotateable: 'Apologies, but all of these photos are temporarily un-rotate-able.',
+		some_unrotateable: 'NOTE: 1 of the photos in this batch is temporarily un-rotate-able.<br>We can rotate the others though, if you wish.',
+		some_unrotateable_plural: 'NOTE: %s of the photos in this batch are temporarily un-rotate-able.<br>We can rotate the others though, if you wish.',
+		
+		pool_uploads_disabled: 'Uploads disabled',
+		pool_uploads_throttled_ever: 'Limit: %s in pool',
+		pool_uploads_throttled_day: 'Limit: %s per day',
+		pool_uploads_throttled_week: 'Limit: %s per week',
+		pool_uploads_throttled_month: 'Limit: %s per month',
+		
+		batch_start_changing_dates: 'Changing date for 1 photo...',
+		batch_start_changing_dates_plural: 'Changing date for %s photos...',
+		batch_status_changing_dates: 'Changed dates for 1 of 1 photo...',
+		batch_status_changing_dates_plural: 'Changed dates for %s of %s photos...',
+		batch_end_changing_dates: 'Changed dates for 1 photo.',
+		batch_end_changing_dates_pl
