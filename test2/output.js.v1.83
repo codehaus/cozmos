@@ -1,41 +1,89 @@
-_matching: 'matching <b>%s</b>',
-		findr_loading_photos: 'Loading photos...',
-		findr_no_groups: 'you belong to no groups',
-		findr_select_a_group: 'select a group...',
-		findr_no_sets: 'you have no sets',
-		findr_select_a_set: 'select a set...',
-		findr_untagged: 'untagged photos',
-		findr_geotagged: 'geotagged photos',
-		findr_ungeotagged: 'non-geotagged photos',
-		findr_in_your: 'in your %s',
-		findr_within_set: 'within a set',
-		findr_within_batch: 'within a batch',
-		findr_within_group: 'within a group',
+',
+		map_x_photos_here: '%s photos taken here',
+		map_1_photo_here: '1 photo taken here',
+
+
+		global_sure: 'Are you sure?',
+		global_sorry: 'Sorry, photo could not be deleted.',
+
+
+
+
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
+		xxx: '',
 		
-		findr_of: 'of your photos',
-		findr_not_in_set: 'photos not in a set',
-		findr_in_upload_day: 'photos uploaded on <b>%s</b>',
-		findr_in_set: 'photos in set <b>%s</b>',
-		findr_in_batch: 'photos from a batch',
-		findr_in_group: 'photos in group <b>%s</b>',
+		
+		
+		
+		see_now_i_dont_need_to_worry_about_commas: 1
+	}
+	
+}
+  
+F.output.sentencise = function(A, tag) {
+	var b_tag = (tag) ? tag : '';
+	var e_tag = (tag) ? tag.replace('<', '<\/') : '';
+	var str = '';
+	
+	for (var i=0; i<A.length;i++) {
+		if (i>0) {
+			if (i == A.length-1) {
+				if (A.length > 2) str+= ','; 
+				str+= ' '+F.output.get('and')+' ';
+			} else {
+				str+= ', ';
+			}
+		
+		}
+		
+		str+= b_tag + A[i] + e_tag;
+	}
+	
+	return str;
+}
 
+// NO USIE THIS ONIE
+F.output.sentencize = function(A) {
+	var str = '<b>';
+	for (var i=0; i<A.length;i++) {
+		str+= A[i];
+		if (i == A.length-1) break;
+		if (i == A.length-2) {
+			str+= '</b> and <b>';
+			continue;
+		}
+		str+= '</b>, <b>';
+	}
+	str+= '</b>';
+	return str;
+}
 
+F.output.dateize = function(y,m,d) {
+	
+	var str = F.output.date_strs.monthsA[m] + ' ' + d + ', ' + y;
+	return str;
+	
+}
 
+// F.output.get is used to retrieve all strings from F.output.format_strs
 
-
-		insitu_click_to_edit: 'Click to edit',
-		insitu_click_to_add_title: 'click here to add a title',
-		insitu_click_to_add_description: 'click here to add a description',
-		insitu_click_to_add_blast: 'click to add an announcement (500 character max.)',
-		insitu_saving: 'saving...',
-		insitu_unknown_hash: 'unknown hash',
-		insitu_description_error: 'Error: your description was NOT saved.',
-		insitu_error_no_hash: 'ERROR: no hash ob exists for %s',
-		insitu_error_title_not_saved: 'Error: your title was NOT saved. %s',
-
-
-
-
-
-		map_searching: 'Searching',
-		map_prefs: '<h3>Hi. We need to tell you something.</h3><p>When you add your photos to this map, information a
+F.output.get = function(format_id) {
+	
+	// first we have to create a new array because you can't shift() the arguments array :(
+	var new_args = [];
+	for (var i=0;
