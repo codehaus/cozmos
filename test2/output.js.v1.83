@@ -1,31 +1,29 @@
-r_after: 'taken on or after <nobr>%s</nobr>',
-		geotagged_uploaded_range: 'uploaded <nobr>%s - %s</nobr>',
-		geotagged_uploaded_on: 'uploaded on <nobr>%s</nobr>',
-		geotagged_uploaded_on_or_before: 'uploaded on or before <nobr>%s</nobr>',
-		geotagged_uploaded_on_or_after: 'uploaded on or after <nobr>%s</nobr>',
-		no_matches: 'No matches found for',
-		looking_at: 'You\'re looking at',
-		geotagged_in_set: 'Geotagged photos in the "%s" set from %s',
-		geotagged_one_photo: 'The photo "%s" by %s, and other photos in the area.',
+sh">here</a>.',
 		
 		
 		
-		
-		
-		
-		
-		upgrade: 'Upgrade your account...',
-		a_gift: 'You can also buy <a id="new_gift_link" href="" onclick="%s">Gift Pro Accounts</a>',
-		another_gift: '<a id="new_gift_link" href="" onclick="%s">Add another Gift Pro Account</a>',
-		will_expire: '(Account will expire on %s)',
-		
-		cant_search: 'Darn! Flickr isn\'t smart enough to search %s (yet!). You can reset the form to search more broadly, or just use the controls below to continue browsing through your photos.',
-		reset_search: 'RESET & SEARCH',
-		keep_browsing: 'KEEP BROWSING',
+		setprint_not_selected_photos: 'You have not selected any photos to print!',
+		setprint_choose_print_size: 'You must choose a print size!',
+		setprint_adding_prints_to_cart: 'adding prints to your cart...',
+		setprint_added_photos: 'We\'ve added <b>%s</b> of the photos you selected to your cart.',
+		setprint_continue_browsing: 'CONTINUE BROWSING',
+		setprint_proceed: 'PROCEED TO CART',
+		setprint_are_you_ready: 'Or are you ready to place your order?',
+		setprint_get_to_cart: 'You can get to your cart anytime by clicking on the cart icon at the top of each page.',
+		setprint_were_errors: 'There were errors adding the photos to your cart:',
+		setprint_no_photos_large_enough: '<b>No photos in this set are really large enough for this size print.</b>',
+		setprint_all_photos_large_enough: '<b>All photos</b> in this set are large enough for this print size.',
+		setprint_x_of_y_large_enough: '<b>%s of %s photos</b> in this set are large enough for this print size.',
 
-		less_restrictive_full_text: 'Try changing the privacy filter under "more options" to be less restrictive, or doing a "full text" search',
-		less_restrictive: 'Try changing the privacy filter under "more options" to be less restrictive.',
-		
-		other_than: 'Try searching for something other than "%s".',
-		full_text: 'Try doing a "full text" search.',
-		no_ph
+
+
+		setorder_set_has_no_photos: 'Hrmm. This set does not appear to have any photos.',
+		setorder_reverting: 'reverting...',
+		setorder_reordering: 're-ordering...',
+		setorder_saving: 'saving...',
+		setorder_order_you_want: 'Is this the ordering you want?',
+		setorder_set_been_reordered: 'Your set has been re-ordered.',
+
+
+
+		pinwin_uploaded_details: 'Uploaded on <a class="Plain" href="/photos/%s/archives/date-posted/%s/%s/%s/" target="_new">%s
