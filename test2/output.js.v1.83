@@ -1,41 +1,33 @@
- a friend. %s',
-		personmenu_is_fam: '<strong>%s</strong> is family. %s',
-		personmenu_is_con: '<strong>%s</strong> is a contact. %s',
-
-		personmenu_as_ff: '%s counts you as friends and family.',
-		personmenu_as_fri: '%s counts you as a friends.',
-		personmenu_as_fam: '%s counts you as family.',
-		personmenu_as_con: '%s counts you as a contact.',
+hotos_plural: '%s photos',
+		mat_group_photos_single: '1 photo',
+		mat_group_wont_work: 'There are unsaved changes, so that won\'t work :)',
+		mat_group_add_to: 'add to <b>%s</b>',
 
 
 
 
-		one_photo_edit_loading_info: 'Loading photo info...',
-		one_photo_edit_problem_loading: 'There was a problem loading the photo info: %s',
-		one_photo_edit_sets_title: '<b>Sets:</b><br>',
-		one_photo_edit_groups_title: '<br><b>Groups:</b><br>',
-		one_photo_edit_none: '--none--<br>',
-		one_photo_edit_plural_photos: '%s photos',
-		one_photo_edit_single_photo: '1 photo\'',
-		one_photo_edit_limit: 'Limit:',
-		one_photo_edit_no_longer_member: '<i>you no longer belong to this group</i>',
-		one_photo_edit_photo_changed: 'A photo has changed',
-		one_photo_edit_really_delete: 'You really want to delete this photos? It will be gone forever, and cannot be recovered.',
-		one_photo_edit_yes_delete: 'yes, delete',
-		one_photo_edit_no: 'no!',
-		one_photo_edit_deleting: 'Deleting photo...',
-		one_photo_edit_nothing_saved: 'nothing saved',
-		one_photo_edit_saving: 'Saving...',
-
-
-
-
-
-		nextprev_goto_prev: 'Go to the previous photo in the %s',
-		nextprev_goto_next: 'Go to the previous photo in the %s',
-
-
-
-
-		mat_batch_drag_photos: 'Drag photos here to edit them as a batch.',
-		mat_batch_you_can: '
+		mat_one_group_loading: 'Loading group...',
+		mat_one_adding_plural: 'Adding photos to pool...',
+		mat_one_adding_single: 'Adding photo to pool...',
+		mat_one_loading_page: '\'Loading page %s...\'',
+		mat_one_msg1: 'You have no photos in this group pool.',
+		mat_one_msg2: '',
+		mat_one_msg3: 'Uploads have been disabled for this group',
+		mat_one_msg4: '',
+		mat_one_msg5: 'Drag photos here to add them to the group pool',
+		mat_one_msg6: 'Drag a photo to the bottom to remove it from the pool.',
+		mat_one_could_not_load: 'could not load set photos: %s',
+		mat_one_photos_already_plural: 'Those photos are already in this group.',
+		mat_one_photos_already_single: 'That photo is already in this group.',
+		mat_one_photos_plural: '%s photos',
+		mat_one_photos_single: '1 photo',
+		mat_one_group_admin: 'You\'re an admin of this group',
+		mat_one_group_member: 'You\'re a member of this group',
+		mat_one_group_public: 'This group is public',
+		mat_one_group_private: 'This group is private',
+		
+		mat_one_open_group_page: 'Open group page',
+		mat_one_show_only_my: 'show only my photos',
+		mat_one_remove_from_pool: 'remove photo from pool',
+		mat_one_are_you_sure: 'Are you sure you want to remove this photo from the <b>%s</b> group pool?<br><br>',
+		mat_one_
