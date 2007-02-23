@@ -1,17 +1,41 @@
-f yours).',
-		personmenu_contactChangerText2_fri_f: 'You can add %s to your list of <i>family</i>, or remove her as a friend (she will remain a contact of yours).',
-		personmenu_contactChangerText2_fri_o: 'You can add %s to your list of <i>family</i>, or remove them as a friend (they will remain a contact of yours).',
+ a friend. %s',
+		personmenu_is_fam: '<strong>%s</strong> is family. %s',
+		personmenu_is_con: '<strong>%s</strong> is a contact. %s',
 
-		personmenu_contactChangerText2_fam_m: 'You can add %s to your list of <i>friends</i>, or remove him from your list of family (he will remain a contact of yours).',
-		personmenu_contactChangerText2_fam_f: 'You can add %s to your list of <i>friends</i>, or remove her from your list of family (she will remain a contact of yours).',
-		personmenu_contactChangerText2_fam_o: 'You can add %s to your list of <i>friends</i>, or remove them from your list of family (they will remain a contact of yours).',
+		personmenu_as_ff: '%s counts you as friends and family.',
+		personmenu_as_fri: '%s counts you as a friends.',
+		personmenu_as_fam: '%s counts you as family.',
+		personmenu_as_con: '%s counts you as a contact.',
 
-		personmenu_contactChangerText2_con_o: 'You can add %s to your list of <i>friends</i> or <i>family</i> (or both).',
 
-		personmenu_contactChangerText3: 'Or, <a href="#" onclick="icon_removeContact(\'%s\'); return false;">remove</a> %s completely from your contacts.',
-		
-		personmenu_contactChangerText1_notcon: '%s will be <b>added</b> as your contact.',
-		personmenu_contactChangerText2_notcom: 'You can also add %s to your list of <i>friends</i> or <i>family</i>(or both).',
-		personmenu_contactChangerText3_notcon: '<i>Marking them as friend or family is optional. It can also be changed at any time.</i>',
-		
-		personme
+
+
+		one_photo_edit_loading_info: 'Loading photo info...',
+		one_photo_edit_problem_loading: 'There was a problem loading the photo info: %s',
+		one_photo_edit_sets_title: '<b>Sets:</b><br>',
+		one_photo_edit_groups_title: '<br><b>Groups:</b><br>',
+		one_photo_edit_none: '--none--<br>',
+		one_photo_edit_plural_photos: '%s photos',
+		one_photo_edit_single_photo: '1 photo\'',
+		one_photo_edit_limit: 'Limit:',
+		one_photo_edit_no_longer_member: '<i>you no longer belong to this group</i>',
+		one_photo_edit_photo_changed: 'A photo has changed',
+		one_photo_edit_really_delete: 'You really want to delete this photos? It will be gone forever, and cannot be recovered.',
+		one_photo_edit_yes_delete: 'yes, delete',
+		one_photo_edit_no: 'no!',
+		one_photo_edit_deleting: 'Deleting photo...',
+		one_photo_edit_nothing_saved: 'nothing saved',
+		one_photo_edit_saving: 'Saving...',
+
+
+
+
+
+		nextprev_goto_prev: 'Go to the previous photo in the %s',
+		nextprev_goto_next: 'Go to the previous photo in the %s',
+
+
+
+
+		mat_batch_drag_photos: 'Drag photos here to edit them as a batch.',
+		mat_batch_you_can: '
