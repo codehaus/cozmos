@@ -1,32 +1,31 @@
- %s group pool.',
-		remove_from_group_email_subject_head: 'subject',
-		remove_from_group_email_body_head: 'body',
-		yes_send_email: 'yes, send email',
+r_after: 'taken on or after <nobr>%s</nobr>',
+		geotagged_uploaded_range: 'uploaded <nobr>%s - %s</nobr>',
+		geotagged_uploaded_on: 'uploaded on <nobr>%s</nobr>',
+		geotagged_uploaded_on_or_before: 'uploaded on or before <nobr>%s</nobr>',
+		geotagged_uploaded_on_or_after: 'uploaded on or after <nobr>%s</nobr>',
+		no_matches: 'No matches found for',
+		looking_at: 'You\'re looking at',
+		geotagged_in_set: 'Geotagged photos in the "%s" set from %s',
+		geotagged_one_photo: 'The photo "%s" by %s, and other photos in the area.',
 		
-		map_date_invalid: 'You must specify a real date, not in the future, after 1/1/1970, in the format m/d/y (like 12/26/2003)',
 		
-		taken_date_invalid: 'You must specify a real date, not in the future, after 1825, in the format m/d/y (like 12/26/2003)',
-		posted_date_invalid: 'You must specify a real date, not in the future, after the date you joined Flickr (%s), in the format m/d/y (like 12/26/2003)',
 		
-		together_saving_tags: 'Saving tags on %s of 1 photo...',
-		together_saving_tags_plural: 'Saving tags on %s of %s photos...',
 		
-		together_saving_meta: 'Saving title and description on %s of 1 photo...',
-		together_saving_meta_plural: 'Saving title and description on %s of %s photos...',
 		
-		together_saved_tags: 'Saved tags on 1 photo.',
-		together_saved_tags_plural: 'Saved tags on %s photos.',
 		
-		together_saved_meta: 'Saved title and description on 1 photo.',
-		together_saved_meta_plural: 'Saved title and description on %s photos.',
 		
-		together_saved_loading: 'Changes Saved! Loading next page...',
-		together_saved: 'Changes Saved!',
+		upgrade: 'Upgrade your account...',
+		a_gift: 'You can also buy <a id="new_gift_link" href="" onclick="%s">Gift Pro Accounts</a>',
+		another_gift: '<a id="new_gift_link" href="" onclick="%s">Add another Gift Pro Account</a>',
+		will_expire: '(Account will expire on %s)',
 		
-		together_save_cancelled: 'The save was cancelled.',
+		cant_search: 'Darn! Flickr isn\'t smart enough to search %s (yet!). You can reset the form to search more broadly, or just use the controls below to continue browsing through your photos.',
+		reset_search: 'RESET & SEARCH',
+		keep_browsing: 'KEEP BROWSING',
+
+		less_restrictive_full_text: 'Try changing the privacy filter under "more options" to be less restrictive, or doing a "full text" search',
+		less_restrictive: 'Try changing the privacy filter under "more options" to be less restrictive.',
 		
-		together_tags_label: 'Tags',
-		together_title_label: 'Title',
-		together_description_label: 'Description',
-		
-		together_need_photos: 'You have to have at least one ph
+		other_than: 'Try searching for something other than "%s".',
+		full_text: 'Try doing a "full text" search.',
+		no_ph
