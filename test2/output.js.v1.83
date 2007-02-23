@@ -1,22 +1,17 @@
- photos per %s to %s. (You\'ve already added %s. Remove a photo from the pool if you really want to add this one.)',
-		photo_limits_4: 'You can only add %s photo per %s to %s. (You\'ve already added %s. Remove a photo from the pool if you really want to add this one.)',
-		photo_see_group_for_info: 'See the <b><a href="/groups/%s/">%s</a></b> %s page for more information.',
-		photo_max_groups: 'This photo is already in the maximum number of groups allowed (the limit is %s groups). To add it to <b>%s</b>, you will first have to remove it from at least one other group.',
-		photo_added_to_set2: 'This photo has been added to a new set titled <b><a href="%s">%s</a></b>.',
-		photo_apologize: 'We do apologize...',
-		photo_first_things_first: 'First things first!',
-		photo_setting_country: 'setting your country...',
-		photo_we_recommend: 'We recommend a minimum photo resolution of %s x %s pixels.',
-		photo_are_you_sure: 'Are you sure you want to remove this photo from <b>%s</b>?',
-		photo_remove_from_set: 'Remove this photo from your %s set',
-		photo_remove_from_pool: 'Remove this photo from the %s pool',
+f yours).',
+		personmenu_contactChangerText2_fri_f: 'You can add %s to your list of <i>family</i>, or remove her as a friend (she will remain a contact of yours).',
+		personmenu_contactChangerText2_fri_o: 'You can add %s to your list of <i>family</i>, or remove them as a friend (they will remain a contact of yours).',
+
+		personmenu_contactChangerText2_fam_m: 'You can add %s to your list of <i>friends</i>, or remove him from your list of family (he will remain a contact of yours).',
+		personmenu_contactChangerText2_fam_f: 'You can add %s to your list of <i>friends</i>, or remove her from your list of family (she will remain a contact of yours).',
+		personmenu_contactChangerText2_fam_o: 'You can add %s to your list of <i>friends</i>, or remove them from your list of family (they will remain a contact of yours).',
+
+		personmenu_contactChangerText2_con_o: 'You can add %s to your list of <i>friends</i> or <i>family</i> (or both).',
+
+		personmenu_contactChangerText3: 'Or, <a href="#" onclick="icon_removeContact(\'%s\'); return false;">remove</a> %s completely from your contacts.',
 		
-		page_photo_hi_im_admin: 'Hi, I\'m an admin for the <a href=\'/groups/%s/\'>%s</a> Flickr group, and we\'d love to have your photo added to the group.',
+		personmenu_contactChangerText1_notcon: '%s will be <b>added</b> as your contact.',
+		personmenu_contactChangerText2_notcom: 'You can also add %s to your list of <i>friends</i> or <i>family</i>(or both).',
+		personmenu_contactChangerText3_notcon: '<i>Marking them as friend or family is optional. It can also be changed at any time.</i>',
 		
-
-
-
-		photo_notes_rotate: 'Rotating photo...',
-		photo_notes_one_note: 'You can only add one note at a time.',
-		photo_notes_add_notes_here: 'Add your note here.',
-		photo_not
+		personme
