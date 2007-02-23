@@ -1,0 +1,147 @@
+/* CSS Document */
+ 
+#cfSearch {position:absolute;font-size:12px;text-align:right;width:750px;top:100px}
+
+/* STANDARD SEARCH HEADER - CHOICES + SEARCH FIELD */
+
+.Areas { height: 50px; background-image: url(http://l.yimg.com/www.flickr.com/images/search_header_border.gif); background-repeat: repeat-x; background-position: left bottom; margin: 15px 0 1px 0; }
+.Areas h1 { float: left; width: 120px; margin-bottom: 0; margin-top: 0; padding-bottom: 0; padding-top: 15px; }
+.In { float: left; margin-top: 22px; margin-right: 8px; padding: 5px 8px 5px 8px; border-top: 1px solid #f1f1f1; border-right: 1px solid #f1f1f1; border-bottom: 1px solid #fff; border-left: 1px solid #f1f1f1; background: #fff; font-size: 14px; font-weight: bold; color: #FF0084; }
+.Out { float: left; margin-top: 25px; margin-right: 8px; font-size: 12px; padding: 5px 8px 5px 8px; background: #f1f1f1; }
+
+.For { float: left; width:760px;  background-image: url(http://l.yimg.com/www.flickr.com/images/search_box_bg.jpg); background-repeat: repeat-x; background-position: left bottom; vertical-align: middle; padding: 8px 0 2px 0;}
+.Filter { float: left; width: 240px; height: 65px; text-align: right; padding-right: 5px; }
+.Filter .Fixed { width: 200px; }
+.This { float: left; width: 500px; height: 65px; }
+.This p { margin-bottom: 0px; }
+.Toggle { margin-top: 3px; }
+
+/* ADVANCED */
+
+.Advanced { width: 760px; }
+.Advanced tr { vertical-align: top; }
+.Advanced td { padding-top: 3px; padding-bottom: 3px; width: 195px; }
+
+.Advanced .Tip { padding-right: 50px; }
+
+/* STANDARD SEARCH RESULTS - DISPLAY # OF RESULTS + VIEW OPTIONS */
+
+.ResultSet { margin-top: 0px; padding: 20px 20px 0 20px; float: left; clear: both; }
+* html .ResultSet {padding-bottom: 20px;}
+
+.queryterm { color: #FF0084;}
+.queryspecial { color: #666; }
+
+.Found { padding-top: 0; padding-left: 25px; padding-bottom: 5px; font: bold 14px Arial, Helvetica, sans-serif; background: url(http://l.yimg.com/www.flickr.com/images/icon_confirm.jpg) no-repeat left top; text-align: left; color: #000000; }
+.NoneFound { padding-top: 0; padding-left: 25px; padding-bottom: 5px; font: bold 14px Arial, Helvetica, sans-serif; background: url(http://l.yimg.com/www.flickr.com/images/icon_error.jpg) no-repeat left top; text-align: left; color: #000000; }
+.SortOptions { float: left; margin-top: 8px; margin-left: 8px; font-weight: normal; font-size: 11px; color: #666666; width:600px; }
+.SortOptions b { color: #999999; } 
+.SortOptions a { text-decoration: none; }
+.Switch { font-size: 12px; float: right; text-align: right; width: 200px; }
+
+.SearchTerm { background: #fef4a1; font-weight: bold; }
+
+.Related { color: #555; padding-left: 35px; margin-top: -12px; margin-bottom: 20px; }
+
+#ySearch {margin-top:25px}
+#ySearch p {font-size: 11px;margin-top: 15px;}
+
+/* ALL RESULTS LISTS */
+
+div.ShowAnAd { width: 760px; }
+.AdColumn { text-align: left; padding-right: 30px; }
+div.AdSpot { float: left; margin-top: 20px; padding-right: 20px; width: 200px; height: 100%; }
+#AdBlock { background-color:#fff; border-left:0;padding-left:0;border-right: 1px solid #ccc; padding-right: 10px; padding-bottom: 10px; margin-top: 0; }
+
+
+/* LARGE VIEW */
+/* PHOTOS @ 240px, Just photos, not meta stuff */
+
+.ResultsLarge { margin-top: 20px; float: left; }
+.ResultsLarge div { float: left; width: 260px; height: 300px; text-align: center; }
+.ResultsLarge p { font: 11px Arial, Helvetica, sans-serif; margin-top: 5px; }
+
+.ResultsLargeAd { margin-top: 20px; float: left; width: 530px; }
+.ResultsLargeAd div { float: left; width: 260px; height: 300px; text-align: center; }
+.ResultsLargeAd p { font: 11px Arial, Helvetica, sans-serif; margin-top: 5px; }
+
+.ResultsThumbs { margin-top: 20px; }
+.ResultsThumbs div { padding: 0px; margin-right: 10px; margin-bottom: 5px; margin-left: 0; float: left; text-align: center; width: 116px; height: 130px; }
+.ResultsThumbs p { font: 11px Arial, Helvetica, sans-serif; margin-top: 5px; }
+
+.ResultsThumbsAd { margin-top: 20px; float: left; width: 530px; }
+.ResultsThumbsAd div { padding: 0px; margin-right: 10px; margin-bottom: 5px; float: left; text-align: center; width: 120px; height: 130px; }
+.ResultsThumbsAd p { font: 11px Arial, Helvetica, sans-serif; margin-top: 5px; }
+
+
+/* DETAIL VIEW */
+/* PHOTOS @ 240px, SHOW TITLE, OWNER, TAGS etc. USED IN PHOTO SEARCH, USER SEARCH, AND GROUP POOLS */
+
+.DetailResults { margin-top: 30px; margin-left: auto; margin-right: auto; }
+.DetailResults td { vertical-align: top; padding-bottom: 30px; }
+.DetailResults .DetailPic { width: 240px; text-align: center; }
+.DetailResults .PicDesc { text-align: left; padding-left: 20px; width: 100%; line-height: 20px; }
+.DetailResults .PicDesc h3 { color: #333333; margin: 0; }
+.DetailResults .SeeMore { font-size: 12px; margin-top: 5px;}
+.DetailResults .PicFrom { margin-top: 15px; margin-bottom: 10px; font-size: 14px; }
+.DetailResults .PicFrom img { float: left; margin-right: 5px; }
+.DetailResults p { font-size: 14px; }
+.DetailResults .ListTags { margin-top: 30px;  }
+
+/* THUMBNAIL VIEW */
+/* PHOTOS @ 100px, WITH OWNER NAME. USED IN PHOTO SEARCH, USER SEARCH, AND GROUP POOLS */
+
+.ThumbResults  { margin-top: 30px; margin-left: auto; margin-right: auto; width: 760px; }
+.ThumbResults td { vertical-align: top; width: 100%; padding-left: 20px; }
+p.Thumby { font: 11px Arial, Helvetica, sans-serif; padding: 0px; margin-top: 0; margin-right: 10px; margin-bottom: 5px; float: left; text-align: center; width: 110px; height: 130px; }
+
+
+/* GROUPS SEARCH */
+/* WHEN SEARCHING NAME & DESCRIPTION */
+
+.GroupsResults { margin-top: 30px; margin-left: auto; margin-right: auto; }
+.GroupsResults td { vertical-align: top; }
+.GroupIcon { padding: 0 15px 0 0; width: 63px; text-align: right; }
+.GroupsResults .Meta { padding-bottom: 20px; width: 393px ; text-align: left; padding-top: 0; }
+.GroupsResults h2 { font: 20px Arial, Helvetica, sans-serif; margin: 0px; }
+.GroupsResults .Stats { font-size: 11px; padding-left: 4px; margin-top: 5px; margin-bottom: 0px; color: #666;}
+.Stat:link { text-decoration: none; }	
+.Stat:visited { text-decoration: none; color: #0066CC; }	
+.Stat:hover { color: #0063DC; background: #fff; text-decoration: underline; }
+.Stat:active { color: #FF0084; background: #fff; text-decoration: underline; }
+.GroupsResults .About { font-size: 12px; margin-top: 10px; }
+.GroupsResults .Pool { font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #777; vertical-align: middle; text-align: center; width: 100px; padding-bottom: 30px; } 
+
+/* DISCUSSION SEARCH */
+/* FOR USE IN GROUPS, GROUP, FORUM SEARCHES */
+
+.DiscussionResults { width: 640px; margin-top: 20px; margin-left: auto; margin-right: auto; }
+.DiscussionResults td { vertical-align: top; }
+.DiscussionResults .InWhich { font-family: Arial, Helvetica, sans-serif; font-size: 11px; margin-left: 10px; }
+.DiscussionResults h2 { font: 20px Arial, Helvetica, sans-serif; margin-top: 0px; margin-bottom: 10px; }
+.DiscussionResults p { margin-top: 0px; margin-bottom: 10px; }
+.DiscussionResults .What { width: 640px; margin-bottom: 20px; }
+.DiscussionResults .Who { padding-right: 15px;}
+.DiscussionResults img {}
+.DiscussionResults .Topic { width: 450px; font: 12px Arial, Helvetica, sans-serif; color: #000000; }
+.DiscussionResults .Glance { width: 180px; }
+.DiscussionResults ul { }
+.DiscussionResults li { font: 11px/15px Arial, Helvetica, sans-serif; color: #999999; }
+
+/* PEOPLE SEARCH */
+
+.PeopleResults { width: 660px; margin-top: 20px; margin-left: auto; margin-right: auto; margin-bottom: 20px; }
+.PeopleResults td { vertical-align: top; }
+.PeopleResults .Icon { width: 58px; padding-right: 8px; }
+.PeopleResults .Who { width: 272px; padding-right: 30px; padding-bottom: 25px; }
+.PeopleResults h2 { margin: 0; font-weight: normal; color: #000; }
+.PeopleResults p { font-size: 11px; color: #999; margin-top: 4px; margin-bottom: 0px; }
+.PeopleResults b { color: #333; }
+
+/* PAGINATOR STYLES HAVE MOVED TO flickr.css */
+
+/* Faq Results */
+#faqResults {background: #f3f3f3;width:728px;_width: 760px;clear: left;border:1px solid #ededed;padding:15px}
+#faqResults h4 {margin:0;font-size:14px;}
+#faqResults ol {margin-top: 0;margin-bottom: 0;}
+#faqResults li {font-size:14px;margin-bottom:2px}
