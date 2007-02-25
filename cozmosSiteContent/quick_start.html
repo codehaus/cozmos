@@ -7,9 +7,24 @@
 <h1>Quick Start</h1>
 <h2>Install the Cozmos web app into Apache's Tomcat server</h2>
 <span style="text-decoration: underline;">Alpha verions</span> of
-Cozmos available here <a href="downloads/">here</a>. <br>
+Cozmos available here <a
+ href="downloads/cozmos-standalone-SNAPSHOT.war">here</a> (for the
+standalone version of Cozmos) and <a
+ href="downloads/cozmos-depends-on-subversion-SNAPSHOT.war">here</a>
+for the version that stores content in Subversion.&nbsp; Both of the
+WAR files are pretty small. <br>
 <br>
-(Mortbay's Jetty will work too, but you must&nbsp; have JETTY_HOME set)<br>
+If you are using the standalone version and want to serve using
+Mortbay's Jetty web server, it will work as well as Tomcat, but you
+must&nbsp; have JETTY_HOME set in order for the content to be stored
+after the web server is bought down.<br>
+<br>
+If you are using the Subversion depending one, you need to work on the
+web.xml in WEB-INF inside the WAR file.&nbsp; There's a URL there (that
+must end in a slash) that points to the mod_dav_svn (https://) entry
+point that you're planning to store content in.&nbsp; You will need to
+push content into there before you launch the web container.&nbsp; You
+will also need to have turned autorevisioning on for mod_dav_svn.<br>
 <h2>For SeaMonkey editing, download and patch it <br>
 </h2>
 1) Go get a recent version of <a
@@ -55,5 +70,6 @@ While browsing the Cozmos application site
 (http://localhost:8080/cozmos?) with SeaMonkey, hit Ctrl-E (Apple-E for
 Mac users) and make changes to the page.&nbsp; Hit the "Publish"&nbsp;
 icon in the toolbar to push the changes back to the server.<br>
+<br>
 </body>
 </html>
