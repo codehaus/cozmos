@@ -1,6 +1,14 @@
-<project>
+<project default="build">
     <target name="build">
         <mkdir dir="target"/>
         <zip destfile="target/page-editor-0.9.xpi" basedir="src"/>
     </target>
+    <target name="deploy" depends="build">
+        <copy todir="../../cozmosSiteContent/downloads">
+            <fileset dir="target">
+                <include name="*.xpi"/>
+            </fileset>
+        </copy>
+    </target>
+
 </project>
