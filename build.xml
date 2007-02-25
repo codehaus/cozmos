@@ -43,8 +43,8 @@
 
         <mkdir dir="target/dist"/>
 
-        <war destfile="target/dist/${ant.project.name}-SNAPSHOT.war"
-             webxml="src/main/resources/WEB-INF/web.xml">
+        <war destfile="target/dist/cozmos-standalone-SNAPSHOT.war"
+             webxml="src/main/resources/WEB-INF/web-standalone.xml">
             <classes dir="target/classes"/>
             <lib dir="lib/sitemesh-2.3">
                 <include name="sitemesh-2.3.jar"/>
@@ -52,11 +52,24 @@
             <lib dir="lib/webdav-servlet-2.0">
                 <include name="webdav-servlet-2.0.jar"/>
             </lib>
-            <webinf dir="src/main/resources/WEB-INF" excludes="web.xml"/>
+            <webinf dir="src/main/resources/WEB-INF" excludes="web*.xml"/>
             <fileset dir="src/main/resources">
                 <exclude name="WEB-INF/**"/>
             </fileset>
         </war>
+
+        <war destfile="target/dist/cozmos-depends-on-subversion-SNAPSHOT.war"
+             webxml="src/main/resources/WEB-INF/web-standalone.xml">
+            <classes dir="target/classes"/>
+            <lib dir="lib/sitemesh-2.3">
+                <include name="sitemesh-2.3.jar"/>
+            </lib>
+            <webinf dir="src/main/resources/WEB-INF" excludes="web*.xml"/>
+            <fileset dir="src/main/resources">
+                <exclude name="WEB-INF/**"/>
+            </fileset>
+        </war>
+
     </target>
 
     <target name="release-src">
