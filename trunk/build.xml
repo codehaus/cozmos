@@ -39,13 +39,20 @@
                 />
     </target>
 
-    <target name="release">
+    <target name="jar" depends="compile">
+        <jar destfile="target/cozmos-servlet-SNAPSHOT.jar"
+             basedir="target/classes"/>
+    </target>
+
+    <target name="release" depends="jar">
 
         <mkdir dir="target/dist"/>
 
         <war destfile="target/dist/cozmos-standalone-SNAPSHOT.war"
              webxml="src/main/resources/WEB-INF/web-standalone.xml">
-            <classes dir="target/classes"/>
+            <lib dir="target">
+                <include name="cozmos-servlet-SNAPSHOT.jar"/>
+            </lib>
             <lib dir="lib/sitemesh-2.3">
                 <include name="sitemesh-2.3.jar"/>
             </lib>
@@ -60,7 +67,9 @@
 
         <war destfile="target/dist/cozmos-depends-on-subversion-SNAPSHOT.war"
              webxml="src/main/resources/WEB-INF/web-standalone.xml">
-            <classes dir="target/classes"/>
+            <lib dir="target">
+                <include name="cozmos-servlet-SNAPSHOT.jar"/>
+            </lib>
             <lib dir="lib/sitemesh-2.3">
                 <include name="sitemesh-2.3.jar"/>
             </lib>
