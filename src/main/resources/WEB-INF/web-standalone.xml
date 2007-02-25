@@ -472,6 +472,10 @@
         <extension>xpi</extension>
         <mime-type>application/x-xpinstall</mime-type>
     </mime-mapping>
+    <mime-mapping>
+        <extension>war</extension>
+        <mime-type>application/war</mime-type>
+    </mime-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -39,12 +39,12 @@
                 />
     </target>
 
-    <target name="jar" depends="compile">
+    <target name="jar" depends="compile, test">
         <jar destfile="target/cozmos-servlet-SNAPSHOT.jar"
              basedir="target/classes"/>
     </target>
 
-    <target name="release" depends="jar">
+    <target name="war" depends="jar">
 
         <mkdir dir="target/dist"/>
 
@@ -123,5 +123,17 @@
             <report format="frames" todir="target/test-report/html"/>
         </junitreport>
     </target>
+
+    <target name="deploy" depends="war">
+
+        <copy todir="../cozmosSiteContent/downloads">
+            <fileset dir="target/dist">
+                <include name="*.war"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+
 
 </project>
