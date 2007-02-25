@@ -69,25 +69,6 @@
 
     </servlet>
 
-    <servlet>
-	    <servlet-name>webdav-new</servlet-name>
-	    <servlet-class>com.thoughtworks.cozmos.ModDavSvnProxyServlet</servlet-class>
-        <init-param>
-            <param-name>new_page_template_file</param-name>
-            <param-value>/newFileTemplate.html</param-value>
-        </init-param>
-        <init-param>
-            <param-name>mod_dav_svn_url</param-name>
-            <param-value>https://svn.codehaus.org/cozmos/test</param-value>
-        </init-param>
-        <init-param>
-            <param-name>default_index_file</param-name>
-            <param-value>index.html</param-value>
-        </init-param>
-
-    </servlet>
-
-
     <servlet-mapping>
 	    <servlet-name>webdav</servlet-name>
 	    <url-pattern>/</url-pattern>
