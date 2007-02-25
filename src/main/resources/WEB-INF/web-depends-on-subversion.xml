@@ -431,6 +431,10 @@
         <extension>doc</extension>
         <mime-type>application/msword</mime-type>
     </mime-mapping>
+    <mime-mapping>
+        <extension>xpi</extension>
+        <mime-type>application/x-xpinstall</mime-type>
+    </mime-mapping>    
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
