@@ -60,8 +60,8 @@
                 <include name="webdav-servlet-2.0.jar"/>
             </lib>
             <webinf dir="src/main/resources/WEB-INF" excludes="web*.xml"/>
-            <fileset dir="src/main/resources">
-                <exclude name="WEB-INF/**"/>
+            <fileset dir="../cozmosSiteContent/">
+                <exclude name="downloads"/>
             </fileset>
         </war>
 
@@ -78,6 +78,12 @@
                 <exclude name="WEB-INF/**"/>
             </fileset>
         </war>
+
+        <zip destfile="target/dist/cozmos-content-SNAPSHOT.zip">
+            <fileset dir="../cozmosSiteContent/">
+                <exclude name="downloads"/>
+            </fileset>
+        </zip>
 
     </target>
 
