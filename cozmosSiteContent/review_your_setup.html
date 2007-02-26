@@ -1,61 +1,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
+  
   <title>Review Your Setup</title>
 </head>
+
+
 <body>
+
 <h2>Viewing Cozmos pages</h2>
+
 Use any Web Browser on any Operating system.&nbsp; <br>
-<h2>Editing Pages in a Cozmos system using SeaMonkey<br>
-</h2>
-For now (early 2007) you can only* use an application called SeaMonkey
-from the Mozilla Foundation (the same people that make Firefox).&nbsp;
-And even having limited editing to one application, you have to modify
-it slightly after installation.<br>
+
+<h2>Editing Pages on a Cozmos server</h2>
+You are most likely going to be editing pages from Firefox. &nbsp;If
+that is the case ensure you have the [Firefox extension] that will
+allow you to do this.<br>
 <br>
-1) Go get SeaMonkey from <a
- href="http://www.mozilla.org/projects/seamonkey/">http://www.mozilla.org/projects/seamonkey/</a>
-(any recent version).<br>
-<br>
-2) Install it the normal way.<br>
-<br>
-3) Go to to a directory called 'chrome' that contains a file called
-'comm.jar' in a command shell<br>
-<br>
-4) Do jar -xf comm.jar content/editor/editorApplicationOverlay.js <br>
-<br>
-5) Edit that file<br>
-<br>
-6) Change ....<br>
-<pre>&nbsp; function editPage(url, launchWindow, delay)<br>&nbsp; {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");</pre>
-&nbsp; to ....<br>
-<pre>&nbsp; function editPage(url, launchWindow, delay)<br>&nbsp; {<br>&nbsp; // Always strip off "view-source:" and #anchors<br>&nbsp; url = url.replace(/^view-source:/, "").replace(/#.*/, "");<br>&nbsp; if (url.substr(0,4) == "http")<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; if (url.indexOf("?") &gt; 0)<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "&amp;editMode=true";&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; else<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url = url + "?editMode=true";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp; }</pre>
-7) Do jar -uf comm.jar content/editor/editorApplicationOverlay.js<br>
-<br>
-Now your SeaMonkey has been modified. It allows the server side Cozmos
-to recognise the differences betweeen a page request from the browser
-and one from the composer (editor) sides of SeaMonkey.&nbsp; We hope to
-see the SeaMonkey team build in such functionality in future.<br>
-<br>
-It is important to note that there are no permissions presently for
-editing of pages.&nbsp; This will change in future versions of Cozmos.<br>
-<br>
-We will also supply a script to modify SeaMonkey for you in future
-versions.<br>
-<br>
-8) On any page you want to edit, while in SeaMonkey, choose 'Edit' from
-the 'File' menu. Alternatively, press Ctrl-E or Apple-E (Windows/Linux
-vs Mac).&nbsp; When your finished editing, hit the publishbutton in the
-toolbar to push the changes back.<br>
+A small amount of highly technical people may be hardcore SeaMonkey users. They may be happy with [hacking seamonkey].<br>
 <h2>Editing Pages in a Cozmos system using other browsers<br>
+
 </h2>
+
 In time we hope that Firefox gets a full and pluggable HTML editing
 component, and that Internet Explorer gets a clean one (Word is not
 quite good enough).&nbsp; For Safari (Mac) Konqueror (Linux) and others
 changes will similarly need to be made to be fully editable-with-WebDAV
 compatible.&nbsp; As of early 2007, none of these browsers are
 compatible.<br>
+
 <br>
+
 <br>
+
 </body>
 </html>
