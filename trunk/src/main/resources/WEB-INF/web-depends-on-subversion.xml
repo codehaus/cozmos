@@ -22,7 +22,7 @@
         </init-param>
         <init-param>
             <param-name>mod_dav_svn_url</param-name>
-            <param-value>https://svn.codehaus.org/cozmos/test</param-value>
+            <param-value>TODO</param-value>
         </init-param>
         <init-param>
             <param-name>default_index_file</param-name>

@@ -39,9 +39,9 @@ Subversion.<br />
 <span style="text-decoration: underline;">Alpha verions</span> of
 Cozmos available here <a href="downloads/cozmos-standalone-SNAPSHOT.war">here</a> (for the
 standalone version of Cozmos) and <a href="downloads/cozmos-depends-on-subversion-SNAPSHOT.war">here</a>
-for the version that stores content in Subversion.&nbsp; Both of the
-WAR files are pretty small. <br />
-
+for the version that stores content in Subversion.&nbsp; For the latter,
+you'll need to pre-populate your Subversion content root with some <a href="downloads/cozmos-content-SNAPSHOT.zip">content</a>.
+All of these archives are pretty small.<br />
 <br />
 
 If you are using the standalone version and want to serve using
@@ -54,12 +54,12 @@ after the web server is bought down.<br />
 <br />
 
 If you are using the Subversion depending version, you need to work on
-the
-web.xml in WEB-INF inside the WAR file.&nbsp; There's a URL there (that
-must end in a slash) that points to the mod_dav_svn (https://) entry
-point that you're planning to store content in.&nbsp; You will need to
-push content into there before you launch the web container.&nbsp; You
-will also need to have turned autorevisioning on for mod_dav_svn.<br />
+the web.xml in WEB-INF inside the WAR file.&nbsp; There's a URL there (that
+must end in a slash, but is marked with "TODO" as shipped) that points
+to the mod_dav_svn (https://) entry point that you're planning to store
+content in.&nbsp; You will need to push content into there before you
+launch the web container.&nbsp; You will also need to have turned
+autorevisioning on for mod_dav_svn.<br />
 <br />
 
 </body>

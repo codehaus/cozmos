@@ -61,7 +61,7 @@
             </lib>
             <webinf dir="src/main/resources/WEB-INF" excludes="web*.xml"/>
             <fileset dir="../cozmosSiteContent/">
-                <exclude name="downloads"/>
+                <exclude name="downloads/**"/>
             </fileset>
         </war>
 
@@ -79,11 +79,7 @@
             </fileset>
         </war>
 
-        <zip destfile="target/dist/cozmos-content-SNAPSHOT.zip">
-            <fileset dir="../cozmosSiteContent/">
-                <exclude name="downloads"/>
-            </fileset>
-        </zip>
+
 
     </target>
 
@@ -137,6 +133,12 @@
                 <include name="*.war"/>
             </fileset>
         </copy>
+        
+        <zip destfile="../cozmosSiteContent/downloads/cozmos-content-SNAPSHOT.zip">
+            <fileset dir="../cozmosSiteContent/">
+                <exclude name="downloads/**"/>
+            </fileset>
+        </zip>
 
     </target>
 
