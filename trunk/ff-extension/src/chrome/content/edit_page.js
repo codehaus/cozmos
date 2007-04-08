@@ -21,7 +21,7 @@ function edit_page() {
     // Mac OS X
 
     try {
-        file.initWithPath("/Applications/Macromedia Dreamweaver 8/Dreamweaver 8/Contents/MacOS/Dreamweaver");
+        file.initWithPath("/Applications/KompoZer.app/Contents/MacOS/kompozer-bin");
         if (file.exists()) {
             found = true;
             args = new Array(url);
@@ -44,7 +44,7 @@ function edit_page() {
     // Windows
     if (!found) {
         try {
-            file.initWithPath("C:\\Program Files\\Macromedia\\Dreamweaver 8\\dreamweaver.exe");
+            file.initWithPath("C:\\Program Files\\KompoZer\\kompozer.exe");
             if (file.exists()) {
                 found = true;
                 args = new Array(url);
@@ -65,6 +65,18 @@ function edit_page() {
     }
 
     // Linux
+
+    if (!found) {
+         try {
+             file.initWithPath("/usr/local/kompozer/kompozer");
+             if (file.exists()) {
+                 found = true;
+                 args = new Array(url);
+             }
+         } catch (ex) {
+         }
+     }
+
     if (!found) {
          try {
              file.initWithPath("/usr/local/seamonkey/seamonkey");
@@ -82,7 +94,7 @@ function edit_page() {
         process.init(file);
         process.run(false, args, args.length);
     } else {
-        window.alert("No editor found");
+        window.alert("No editor found. Please install SeaMonkey or KompoZer as per instructions on http://cozmos.codehaus.org/Firefox_extension.html");
     }
 
 }
