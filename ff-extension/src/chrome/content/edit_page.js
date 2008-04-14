@@ -35,7 +35,7 @@ function edit_page() {
             file.initWithPath("/Applications/SeaMonkey.app/Contents/MacOS/seamonkey");
             if (file.exists()) {
                 found = true;
-                args = new Array("-editor", url);
+                args = new Array("-edit", url);
             }
         } catch (ex) {
         }

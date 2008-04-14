@@ -8,7 +8,7 @@
         <!-- Required Items -->
         <em:id>paul@hammant.org</em:id>
         <em:name>Page Editor</em:name>
-        <em:version>0.9.1</em:version>
+        <em:version>0.9.2</em:version>
 
         <em:targetApplication>
             <Description>

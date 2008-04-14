@@ -1,7 +1,7 @@
 <project default="build">
     <target name="build">
         <mkdir dir="target"/>
-        <zip destfile="target/page-editor-0.9.1.xpi" basedir="src"/>
+        <zip destfile="target/page-editor-0.9.2.xpi" basedir="src"/>
     </target>
     <target name="deploy" depends="build">
         <copy todir="../../cozmosSiteContent/downloads">
